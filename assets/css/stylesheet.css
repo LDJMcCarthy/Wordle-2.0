@@ -1,11 +1,36 @@
-
-nav{
-    background-color: #000000;
+html{
+    height: 100%;
+}
+body{
+    background-color: #171717;
+    height: 100%;
     color: #ffffff;
-    font-family: 'Abril Fatface', cursive;
+    text-align: justify;
+}
+nav{
+    background-color: #171717;
+    color: #ffffff;
+    font-family: 'Zilla Slab', serif;
     height: 65px;
     font-size: 32px;
+    border-bottom: solid 1px #313131;
 }
 .navbar-nav{
     min-width: 100%;
+}
+.row{
+    width:100%;
+}
+.side-menu{
+    width: 375px;
+    height: 100%;
+}
+
+
+@media screen and (max-width: 600px){
+    nav{
+        height: 48px;
+        font-size: 28px;
+
+    }
 }
