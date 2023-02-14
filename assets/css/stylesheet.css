@@ -20,12 +20,60 @@ nav{
 }
 .row{
     width:100%;
+    margin: 0px;
 }
 .side-menu{
     width: 375px;
     height: 100%;
 }
+.game-position{
+    height: 100%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.game-board{
+    display: grid;
+    justify-content: center; 
+}
 
+.game-row{
+    width: 330px;
+}
+.game-column{
+    width:62px;
+    height:62px;
+    background-color: #171717;
+    border: solid 2px #313131;
+    display: block;
+    margin: 2px;
+}
+.correct-place{
+    background-color: #71c24e;
+    color: #ffffff;
+    font-size: 2rem;
+    text-align: center;
+    font-family: 'Zilla Slab', serif;
+    display: grid;
+    place-items: center;
+}
+.wrong-place{
+    background-color: #ceaa31;
+    color: #ffffff;
+    font-size: 2rem;
+    text-align: center;
+    font-family: 'Zilla Slab', serif;
+    display: grid;
+    place-items: center;
+}
+.wrong{
+    background-color: #313131;
+    color: #ffffff;
+    font-size: 2rem;
+    text-align: center;
+    font-family: 'Zilla Slab', serif;
+    display: grid;
+    place-items: center;
+}
 
 @media screen and (max-width: 600px){
     nav{
