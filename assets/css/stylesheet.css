@@ -1,0 +1,11 @@
+
+nav{
+    background-color: #000000;
+    color: #ffffff;
+    font-family: 'Abril Fatface', cursive;
+    height: 65px;
+    font-size: 32px;
+}
+.navbar-nav{
+    min-width: 100%;
+}
