@@ -7,5 +7,16 @@ themeToggle.addEventListener('change', function () {
         theme = 'dark';
     }
 
+    localStorage.setItem('theme', theme);
+
     document.querySelector('html').setAttribute('data-bs-theme', theme);
 });
+
+if (localStorage.getItem('theme') === null)
+{
+    localStorage.setItem('theme', 'dark')
+}
+
+document.querySelector('html').setAttribute('data-bs-theme', localStorage.getItem('theme'));
+
+themeToggle.checked = (localStorage.getItem('theme') == 'dark');

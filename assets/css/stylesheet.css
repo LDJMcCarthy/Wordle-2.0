@@ -1,3 +1,9 @@
+:root
+{
+    --cell-size: 50px;
+    --cell-font-size: 2rem;
+}
+
 html {
     height: 100%;
 }
@@ -38,9 +44,9 @@ nav {
     justify-content: center; 
 }
 .game-column{
-    width:50px;
-    height: 50px;
-    font-size: 2rem;
+    width: var(--cell-size);
+    height: var(--cell-size);
+    font-size: var(--cell-font-size);
     display: block;
     margin: 2px;
     background-color: #f0f0f0;
@@ -105,3 +111,11 @@ nav {
     justify-self: end;
     cursor: pointer;
 }
+
+@media only screen and (max-width: 600px) {
+    :root
+    {
+        --cell-size: 40px;
+        --cell-font-size: 1.5rem;
+    }
+  }
