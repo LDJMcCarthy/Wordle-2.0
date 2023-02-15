@@ -77,3 +77,31 @@ nav {
 {
     cursor: pointer;
 }
+
+#settings .modal-header, #settings .modal-footer
+{
+    justify-content: center;
+}
+
+[data-bs-theme="dark"] .modal-body
+{
+    color: white;
+}
+
+.modal
+{
+    --bs-modal-width: 350px;
+}
+
+.form-switch
+{
+    padding-left: 0;
+    display: grid;
+    grid-template-columns: 0.5fr 0.5fr;
+}
+
+.form-switch input
+{
+    justify-self: end;
+    cursor: pointer;
+}
