@@ -1,19 +1,21 @@
-html{
+html {
     height: 100%;
 }
-body{
-    background-color: #171717;
+body {
     height: 100%;
-    color: #ffffff;
+    color: black;
     text-align: justify;
 }
-nav{
-    background-color: #171717;
-    color: #ffffff;
+nav {
     font-family: 'Zilla Slab', serif;
     height: 65px;
     font-size: 32px;
     border-bottom: solid 1px #313131;
+}
+[data-bs-theme="dark"] nav
+{
+    background-color: #171717;
+    color: #ffffff;
 }
 .navbar-nav{
     min-width: 100%;
@@ -35,50 +37,43 @@ nav{
     display: grid;
     justify-content: center; 
 }
-
-.game-row{
-    width: 330px;
-}
 .game-column{
-    width:62px;
-    height:62px;
-    background-color: #171717;
-    border: solid 2px #313131;
+    width:50px;
+    height: 50px;
+    font-size: 2rem;
     display: block;
     margin: 2px;
+    background-color: #f0f0f0;
+}
+[data-bs-theme="dark"] .game-column
+{
+    background-color: #171717;
 }
 .correct-place{
-    background-color: #71c24e;
+    background-color: #71c24e !important;
     color: #ffffff;
-    font-size: 2rem;
     text-align: center;
     font-family: 'Zilla Slab', serif;
     display: grid;
     place-items: center;
 }
 .wrong-place{
-    background-color: #ceaa31;
+    background-color: #ceaa31 !important;
     color: #ffffff;
-    font-size: 2rem;
     text-align: center;
     font-family: 'Zilla Slab', serif;
     display: grid;
     place-items: center;
 }
 .wrong{
-    background-color: #313131;
+    background-color: #313131  !important;
     color: #ffffff;
-    font-size: 2rem;
     text-align: center;
     font-family: 'Zilla Slab', serif;
     display: grid;
     place-items: center;
 }
-
-@media screen and (max-width: 600px){
-    nav{
-        height: 48px;
-        font-size: 28px;
-
-    }
+.nav-link
+{
+    cursor: pointer;
 }
