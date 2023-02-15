@@ -19,6 +19,7 @@ nav {
     height: 65px;
     font-size: 32px;
     border-bottom: solid 1px #313131;
+    background-color: white;
 }
 [data-bs-theme="dark"] nav
 {
@@ -74,7 +75,6 @@ nav {
     place-items: center;
 }
 .wrong{
-    //background-color: #313131  !important;
     background-color: #484848  !important;
     color: #ffffff;
     text-align: center;
@@ -122,5 +122,14 @@ nav {
         --cell-font-size: 1.5rem;
         --key-width: 30px;
         --key-font-size: 1rem;
+    }
+    .keyboard-container
+    {
+        position: fixed;
+        bottom: 15px;
+    }
+    .game-position{
+        margin-top: 25px;
+        margin-bottom: unset;
     }
   }
