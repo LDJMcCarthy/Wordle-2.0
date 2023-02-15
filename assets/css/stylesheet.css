@@ -46,6 +46,7 @@ nav {
     display: grid;
     justify-content: center; 
 }
+
 .game-column{
     width: var(--cell-size);
     height: var(--cell-size);
@@ -131,5 +132,11 @@ nav {
     .game-position{
         margin-top: 25px;
         margin-bottom: unset;
+    }
+    .game-board {
+        position: fixed;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
     }
   }
