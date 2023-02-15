@@ -2,6 +2,8 @@
 {
     --cell-size: 50px;
     --cell-font-size: 2rem;
+    --key-width: 40px;
+    --key-font-size: 1.25rem;
 }
 
 html {
@@ -72,7 +74,8 @@ nav {
     place-items: center;
 }
 .wrong{
-    background-color: #313131  !important;
+    //background-color: #313131  !important;
+    background-color: #484848  !important;
     color: #ffffff;
     text-align: center;
     font-family: 'Zilla Slab', serif;
@@ -117,5 +120,7 @@ nav {
     {
         --cell-size: 40px;
         --cell-font-size: 1.5rem;
+        --key-width: 30px;
+        --key-font-size: 1rem;
     }
   }

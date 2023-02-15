@@ -1,0 +1,38 @@
+.keyboard-container
+{
+    justify-content: center;
+}
+
+.keyboard
+{
+    display: grid;
+    grid-template-columns: auto;
+    justify-items: center;
+    grid-row-gap: 10px;
+}
+
+.key
+{
+    min-width: var(--key-width);
+    padding: 0 5px;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 5px;
+    font-size: var(--key-font-size);
+    background-color: #f0f0f0;
+    font-weight: bold;
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+    font-family: 'Zilla Slab', serif;
+}
+
+#enter
+{
+    font-family: unset;
+}
+
+.key:hover
+{
+    background-color: #c0c0c0;
+}
