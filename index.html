@@ -16,7 +16,7 @@
         <nav class="navbar navbar-expand sticky-top"> <!-- Influenced by https://www.w3schools.com/bootstrap5/bootstrap_navbar.php -->
             <div class="container-fluid">
                 <div class="nav-item">
-                    <a class="nav-link">
+                    <a class="nav-link btn" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
                         <i class="fa-solid fa-bars"></i>
                     </a>
                 </div>
@@ -30,7 +30,56 @@
                 </div>
             </div>
         </nav>
+        <!-- Games Menu -->   
+        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel"> <!-- https://getbootstrap.com/docs/5.0/components/offcanvas/ -->
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasExampleLabel">Wordle Game Modes</h5>
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            
+            <div class="offcanvas-body">
+                <div class="d1">
+                    <p>Why not try out some of our other games modes:</p>
+                </div>
+                <div class="d1">
+                    <div class="row">
+                        <a class="gamemode-link row" href="#">
+                            <div class="col-1">
+                                <i class="fa-solid fa-dice-four"></i>
+                            </div>
+                            <div class="col-11">
+                                <p>4 Letter Wordle</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="row">
+                        <a class="gamemode-link row" href="#">
+                            <div class="col-1">
+                                <i class="fa-solid fa-dice-five"></i>
+                            </div>
+                            <div class="col-11">
+                                <p>5 Letter Wordle</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="row">
+                        <a class="gamemode-link row" href="#">
+                            <div class="col-1">
+                                <i class="fa-solid fa-dice-six"></i>
+                            </div>
+                            <div class="col-11">
+                                <p>6 Letter Wordle</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="d1">
+                </div>
+            </div>
+         </div>
 
+
+       
         <!-- Settings modal-->
         <div class="modal" tabindex="-1" id="settings">
             <div class="modal-dialog">

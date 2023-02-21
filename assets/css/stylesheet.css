@@ -29,6 +29,38 @@ nav {
 .navbar-nav{
     min-width: 100%;
 }
+.offcanvas{
+    font-family: 'Zilla Slab', serif;
+    padding: 15px;
+}
+.d1{
+    padding-top: 10px;
+    padding-bottom: 5px;
+    border-top: 1px solid #000;
+}
+[data-bs-theme="dark"] .d1{
+    border-top: 1px solid #fff;
+}
+a{
+    text-decoration: none;
+}
+[data-bs-theme="dark"] i{
+    color: #fff;
+}
+p{
+    color: #000;
+}
+[data-bs-theme="dark"] p
+{
+    color: #fff;
+}
+.gamemode-link{
+    color: #000;
+}
+.gamemode-link:hover{
+    background-color: #f0f0f0;
+}
+
 .row{
     width:100%;
     margin: 0px;
