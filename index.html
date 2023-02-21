@@ -16,7 +16,7 @@
         <nav class="navbar navbar-expand sticky-top"> <!-- Influenced by https://www.w3schools.com/bootstrap5/bootstrap_navbar.php -->
             <div class="container-fluid">
                 <div class="nav-item">
-                    <a class="nav-link btn" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+                    <a class="nav-link btn" data-bs-toggle="offcanvas" href="#offcanvas" role="button" aria-controls="offcanvas">
                         <i class="fa-solid fa-bars"></i>
                     </a>
                 </div>
@@ -31,9 +31,9 @@
             </div>
         </nav>
         <!-- Games Menu -->   
-        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel"> <!-- https://getbootstrap.com/docs/5.0/components/offcanvas/ -->
+        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasLabel"> <!-- https://getbootstrap.com/docs/5.0/components/offcanvas/ -->
             <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="offcanvasExampleLabel">Wordle Game Modes</h5>
+                <h5 class="offcanvas-title" id="offcanvasLabel">Wordle Game Modes</h5>
                 <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             
@@ -92,7 +92,7 @@
                     <div class="form-check form-switch">
                         <div class="form-check-label">Dark theme</div>
                         <input class="form-check-input" type="checkbox" role="switch" id="darkModeToggler" checked>
-                      </div>
+                    </div>
 
                 </div>
                 <div class="modal-footer">
