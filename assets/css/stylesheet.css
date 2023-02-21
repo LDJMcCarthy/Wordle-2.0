@@ -60,6 +60,10 @@ p{
 .gamemode-link:hover{
     background-color: #f0f0f0;
 }
+[data-bs-theme="dark"] .gamemode-link:hover
+{
+    background-color: #32373c;
+}
 .row{
     width:100%;
     margin: 0px;
