@@ -45,6 +45,9 @@ nav {
 .game-board{
     display: grid;
     justify-content: center; 
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .game-column{
@@ -54,6 +57,10 @@ nav {
     display: block;
     margin: 2px;
     background-color: #f0f0f0;
+    text-align: center;
+    font-family: 'Zilla Slab', serif;
+    display: grid;
+    place-items: center;
 }
 [data-bs-theme="dark"] .game-column
 {
@@ -62,26 +69,14 @@ nav {
 .correct-place{
     background-color: #71c24e !important;
     color: #ffffff;
-    text-align: center;
-    font-family: 'Zilla Slab', serif;
-    display: grid;
-    place-items: center;
 }
 .wrong-place{
     background-color: #ceaa31 !important;
     color: #ffffff;
-    text-align: center;
-    font-family: 'Zilla Slab', serif;
-    display: grid;
-    place-items: center;
 }
 .wrong{
     background-color: #484848  !important;
     color: #ffffff;
-    text-align: center;
-    font-family: 'Zilla Slab', serif;
-    display: grid;
-    place-items: center;
 }
 .nav-link
 {
