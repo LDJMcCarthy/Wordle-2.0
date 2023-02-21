@@ -65,6 +65,7 @@ nav {
 [data-bs-theme="dark"] .game-column
 {
     background-color: #171717;
+    color: #ffffff;
 }
 .correct-place{
     background-color: #71c24e !important;
