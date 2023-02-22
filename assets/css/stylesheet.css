@@ -144,6 +144,7 @@ p{
 .form-switch input
 {
     justify-self: end;
+ 
     cursor: pointer;
 }
 
