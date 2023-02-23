@@ -1,3 +1,5 @@
+const menu = new bootstrap.Offcanvas(document.querySelector('#offcanvas'));
+
 function setupGame(numberOfLetters) {
     /* Reset the game board */
     const board = document.querySelector('#game-board');
@@ -30,6 +32,11 @@ function setupGame(numberOfLetters) {
 
     /* Reset the error text */
     hideError();
+
+    /* Choose a word based off current selection */
+
+    /* Hide the menu */
+    menu.hide();
 }
 
 function showError(msg)
