@@ -34,8 +34,7 @@ nav {
     padding: 15px;
 }
 .d1{
-    padding-top: 10px;
-    padding-bottom: 5px;
+    padding: 10px 0px;
     border-top: 1px solid #000;
 }
 [data-bs-theme="dark"] .d1{
@@ -57,14 +56,39 @@ p{
 .gamemode-link{
     color: #000;
     cursor: pointer;
+    text-align: center;
+    padding: 10px;
+    border-radius: 15px;
+    background-color: var(--bs-tertiary-bg);
+    box-sizing: border-box;
 }
-.gamemode-link:hover{
-    background-color: #f0f0f0;
+.gamemode-link:not(.active):hover{
+    background-color: #d7d7d7;
 }
-[data-bs-theme="dark"] .gamemode-link:hover
+.gamemode-link i
 {
-    background-color: #32373c;
+    font-size: 3rem;
+    display: inline-block;
 }
+.gamemode-link p
+{
+    font-size: 1.5rem;
+    margin-bottom: 0;
+}
+.gamemode-link.active
+{
+    border: 2px solid var(--bs-emphasis-color);
+    cursor: default;
+}
+[data-bs-theme="dark"] .gamemode-link.active
+{
+    border: 2px solid white;
+}
+[data-bs-theme="dark"] .gamemode-link:not(.active):hover
+{
+    background-color: var(--bs-secondary-color);
+}
+
 .row{
     width:100%;
     margin: 0px;
@@ -125,6 +149,11 @@ p{
     justify-content: center;
 }
 
+.modal-body
+{
+    font-size: 1.25rem
+}
+
 [data-bs-theme="dark"] .modal-body
 {
     color: white;
@@ -145,9 +174,9 @@ p{
 .form-switch input
 {
     justify-self: end;
- 
     cursor: pointer;
 }
+
 
 @media only screen and (max-width: 600px) {
     :root
@@ -157,19 +186,8 @@ p{
         --key-width: 30px;
         --key-font-size: 1rem;
     }
-    .keyboard-container
+    .gamemode-link i
     {
-        position: fixed;
-        bottom: 15px;
-    }
-    .game-position{
-        margin-top: 25px;
-        margin-bottom: unset;
-    }
-    .game-board {
-        position: fixed;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 100%;
+        font-size: 2rem;
     }
   }

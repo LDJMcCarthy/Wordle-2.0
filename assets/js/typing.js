@@ -33,7 +33,7 @@ document.querySelectorAll('.key').forEach((key) => {
         }
 
         /* Handle enter being pressed */
-        else
+        else if (target == 'ENTER')
         {
             if (currentRow.querySelectorAll('.game-column').length != column)
             {

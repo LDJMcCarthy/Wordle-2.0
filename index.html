@@ -34,48 +34,55 @@
         <!-- Games Menu -->   
         <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasLabel"> <!-- https://getbootstrap.com/docs/5.0/components/offcanvas/ -->
             <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="offcanvasLabel">Wordle Game Modes</h5>
+                <h3 class="offcanvas-title" id="offcanvasLabel">Choose Game Mode</h3>
                 <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             
             <div class="offcanvas-body">
                 <div class="d1">
-                    <p>Why not try out some of our other games modes:</p>
+                    <h4>Classic Mode</h4>
                 </div>
-                <div class="d1">
-                    <div class="row">
-                        <a class="gamemode-link row" onclick = "setupGame(4)">
-                            <div class="col-1">
+
+                <div class="row">
+                    <h6 class="col-12 mb-2">Number of Letters</h6>
+                    <div class="col-4">
+                        <a class="gamemode-link row" data-value="4">
+                            <div class="col-12">
                                 <i class="fa-solid fa-dice-four"></i>
                             </div>
-                            <div class="col-11">
-                                <p>4 Letter Wordle</p>
+                            <div class="col-12">
+                                <p>4</p>
                             </div>
                         </a>
                     </div>
-                    <div class="row">
-                        <a class="gamemode-link row"  onclick = "setupGame(5)">
-                            <div class="col-1">
+                    <div class="col-4">
+                        <a class="gamemode-link row active" data-value="5">
+                            <div class="col-12">
                                 <i class="fa-solid fa-dice-five"></i>
                             </div>
-                            <div class="col-11">
-                                <p>5 Letter Wordle</p>
+                            <div class="col-12">
+                                <p>5</p>
                             </div>
                         </a>
                     </div>
-                    <div class="row">
-                        <a class="gamemode-link row"  onclick = "setupGame(6)">
-                            <div class="col-1">
+                    <div class="col-4">
+                        <a class="gamemode-link row" data-value="6">
+                            <div class="col-12">
                                 <i class="fa-solid fa-dice-six"></i>
                             </div>
-                            <div class="col-11">
-                                <p>6 Letter Wordle</p>
+                            <div class="col-12">
+                                <p>6</p>
                             </div>
                         </a>
                     </div>
                 </div>
-                <div class="d1">
+
+                <div class="row mt-4">
+                    <div class="btn btn-light" id="play-button">
+                        Play
+                    </div>
                 </div>
+
             </div>
          </div>
 
@@ -194,7 +201,7 @@
                     <div class="key">L</div>
                 </div>
                 <div>
-                    <div class="key">ENTER</div>
+                    <div class="key" id="enter">ENTER</div>
                     <div class="key">Z</div>
                     <div class="key">X</div>
                     <div class="key">C</div>
@@ -202,7 +209,7 @@
                     <div class="key">B</div>
                     <div class="key">N</div>
                     <div class="key">M</div>
-                    <div class="key"><i class="fa-solid fa-delete-left"></i></div>
+                    <div class="key"><i class="fa-solid fa-delete-left" id="delete"></i></div>
                 </div>
             </div>
         </div>
@@ -211,5 +218,6 @@
     <script src="assets/js/themeSwitcher.js"></script>
     <script src="assets/js/typing.js"></script>
     <script src="assets/js/game.js"></script>
+    <script src="assets/js/menu.js"></script>
     <script src="https://kit.fontawesome.com/37aedfb0cb.js" crossorigin="anonymous"></script> <!-- https://fontawesome.com/  -->
 </html>

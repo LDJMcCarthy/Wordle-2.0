@@ -39,3 +39,8 @@
 {
     background-color: #c0c0c0;
 }
+
+[data-bs-theme="dark"] #delete
+{
+    color: black;
+}
