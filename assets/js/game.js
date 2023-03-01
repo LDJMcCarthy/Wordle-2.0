@@ -39,6 +39,14 @@ function setupGame(numberOfLetters) {
     menu.hide();
 }
 
+function dateCalc()
+{
+    const start_date = new Date("01/03/2023");
+    const today_date = new Date();
+    let days = (today_date.getTime() - start_date.getTime())/ (1000 * 3600 * 24);
+    return days;
+}
+
 function showError(msg)
 {
     document.querySelector('#errorText').classList.remove('d-none');
