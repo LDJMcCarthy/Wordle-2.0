@@ -46,57 +46,79 @@ document.querySelectorAll('.key').forEach((key) => {
                     word += letter.innerText;
                 });
 
-                let greenCount = 0;
+                let valid = false
 
-                //Validate word here
-
-                for (let i = 0; i < word.length; i++)
+                if (game_status.active == 4)
                 {
-                    if (word[i] == game_status["word"][game_status.active][i])
-                    {
-                        document.querySelectorAll('.game-row')[row].querySelectorAll('.game-column')[i].classList.add('correct-place');
-                        document.querySelector('#' + word[i]).classList.remove('wrong-place');
-                        document.querySelector('#' + word[i]).classList.remove('wrong');
-                        document.querySelector('#' + word[i]).classList.add('correct-place');
-
-                        greenCount++;
-                    }
-                    else if (game_status["word"][game_status.active].includes(word[i]))
-                    {
-                        document.querySelectorAll('.game-row')[row].querySelectorAll('.game-column')[i].classList.add('wrong-place');
-                        
-                        if (document.querySelector('#' + word[i]).classList.contains('correct-place') == false)
-                        {
-                            document.querySelector('#' + word[i]).classList.remove('wrong');
-                            document.querySelector('#' + word[i]).classList.add('wrong-place');
-                        }
-                    }
-                    else
-                    {
-                        document.querySelectorAll('.game-row')[row].querySelectorAll('.game-column')[i].classList.add('wrong');
-                        document.querySelector('#' + word[i]).classList.add('wrong');
-                    }
+                    valid = four.includes(word);
                 }
-
-
-                if(greenCount == game_status.active)
+                else if (game_status.active == 5)
                 {
-                    /* Show win */
-                    alert('win');
-                    game_status['daily'][game_status.active] = true;
+                    valid = five.includes(word);
                 }
                 else
                 {
-                    row++;
-                    column = 0;
+                    valid = six.includes(word);
                 }
 
-                if (row == (game_status.active + 1))
+                if (valid)
                 {
-                    /* Show lost */
-                    alert('lost');
-                    game_status['daily'][game_status.active] = true;
-                }
+                    let greenCount = 0;
+
+                    for (let i = 0; i < word.length; i++)
+                    {
+                        if (word[i] == game_status["word"][game_status.active][i])
+                        {
+                            document.querySelectorAll('.game-row')[row].querySelectorAll('.game-column')[i].classList.add('correct-place');
+                            document.querySelector('#' + word[i]).classList.remove('wrong-place');
+                            document.querySelector('#' + word[i]).classList.remove('wrong');
+                            document.querySelector('#' + word[i]).classList.add('correct-place');
+
+                            greenCount++;
+                        }
+                        else if (game_status["word"][game_status.active].includes(word[i]))
+                        {
+                            document.querySelectorAll('.game-row')[row].querySelectorAll('.game-column')[i].classList.add('wrong-place');
+                            
+                            if (document.querySelector('#' + word[i]).classList.contains('correct-place') == false)
+                            {
+                                document.querySelector('#' + word[i]).classList.remove('wrong');
+                                document.querySelector('#' + word[i]).classList.add('wrong-place');
+                            }
+                        }
+                        else
+                        {
+                            document.querySelectorAll('.game-row')[row].querySelectorAll('.game-column')[i].classList.add('wrong');
+                            document.querySelector('#' + word[i]).classList.add('wrong');
+                        }
+                    }
+
+
+                    if(greenCount == game_status.active)
+                    {
+                        /* Show win */
+                        alert('win');
+                        game_status['daily'][game_status.active] = true;
+                    }
+                    else
+                    {
+                        row++;
+                        column = 0;
+                    }
+
+                    if (row == (game_status.active + 1))
+                    {
+                        /* Show lost */
+                        alert('lost');
+                        game_status['daily'][game_status.active] = true;
+                    }
+
+                } 
+                else
+                {
+                    showError('Not a valid word!');
+                } 
+
 
             }
         }

@@ -111,3 +111,7 @@ function hideError()
 {
     document.querySelector('#errorText').classList.add('d-none');
 }
+
+document.querySelector('#retry').addEventListener('click', function () {
+    setupGame(game_status.active);
+});
