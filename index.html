@@ -117,23 +117,83 @@
         
         
         <!-- Result Modal -->
-        <div class="modal" tabindex="-1" id="results">
+        <div class="modal" tabindex="-1" id="results" style="display: block!important;">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title text-center">The results are in...</h5>
                     </div>
                     <div class="modal-body">
-                        <div id="returned_result">
+                        <div class="returned_result id="returned_result">
                             <h5 id="correctly_guessed">Congradulations! You have correctly guessed the word.</h5>
                             <h5 id="incorrectly_guessed">Boo hoo! You have not guessed the correct word. The correct word was <span id="correct_word"></span>. Why not try again?</h5>
                         </div>
-                        <div id="user_statistics">
-                            <div class="displayed_statistics"></div>
-                            <button type="button" id="share" class="btn btn-secondary">Share <i class="fa-solid fa-share"></i></button>
+                        <div class="user_statistics" id="user_statistics">
+                            <div class="displayed_statistics">
+                                <p>Statistics</p>
+                                <div class="statistics_box">
+                                    <div class="stat1">
+                                        <div class="statistics_numbers">
+                                            1
+                                        </div>
+                                        <div class="statistics_chart">
+                                            0
+                                        </div>
+                                    </div>
+                                    <div class="stat2">
+                                        <div class="statistics_numbers">
+                                            2
+                                        </div>
+                                        <div class="statistics_chart">
+                                            0
+                                        </div>
+                                    </div>
+                                    <div class="stat3">
+                                        <div class="statistics_numbers">
+                                            3
+                                        </div>
+                                        <div class="statistics_chart">
+                                            0
+                                        </div>
+                                    </div>
+                                    <div class="stat4">
+                                        <div class="statistics_numbers">
+                                            4
+                                        </div>
+                                        <div class="statistics_chart">
+                                            0
+                                        </div>
+                                    </div>
+                                    <div class="stat5">
+                                        <div class="statistics_numbers">
+                                            5
+                                        </div>
+                                        <div class="statistics_chart">
+                                            0
+                                        </div>
+                                    </div>
+                                    <div class="stat6">
+                                        <div class="statistics_numbers">
+                                            6
+                                        </div>
+                                        <div class="statistics_chart">
+                                            0
+                                        </div>
+                                    </div>
+                                    <div class="stat7">
+                                        <div class="statistics_numbers">
+                                            7
+                                        </div>
+                                        <div class="statistics_chart">
+                                            0
+                                        </div>
+                                    </div>
+                                </div>
+                                <button type="button" id="share" class="btn btn-secondary">Share <i class="fa-solid fa-share"></i></button>
+                            </div>
                         </div>
                         <div>
-                            <button type="button" id="retry" class="btn btn-secondary">Play again</button>
+                            <button type="button" id="retry" class="btn btn-secondary">Play again?</button>
                         </div>
                     </div>
                     <div class="modal-footer">
