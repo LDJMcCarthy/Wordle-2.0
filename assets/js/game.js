@@ -95,9 +95,9 @@ function setupGame(numberOfLetters) {
 
 function dateCalc()
 {
-    const start_date = new Date("01/03/2023");
+    const start_date = new Date("03/01/2023");
     const today_date = new Date();
-    let days = (today_date.getTime() - start_date.getTime())/ (1000 * 3600 * 24);
+    let days = Math.floor((today_date.getTime() - start_date.getTime())/ (1000 * 3600 * 24));
     return days;
 }
 
