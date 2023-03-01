@@ -12,7 +12,6 @@ html {
 body {
     height: 100%;
     color: black;
-    text-align: justify;
 }
 nav {
     font-family: 'Zilla Slab', serif;
@@ -121,7 +120,9 @@ p{
     font-family: 'Zilla Slab', serif;
     display: grid;
     place-items: center;
+    transition: 0.4s;
 }
+
 [data-bs-theme="dark"] .game-column
 {
     background-color: #171717;
@@ -182,9 +183,17 @@ p{
     cursor: pointer;
 }
 
-#incorrectly_guessed{
-    display: none;
+.result-btn
+{
+    width: 100%;
+    text-align: center;
 }
+
+.results-dialog
+{
+    min-width: 40%;
+}
+
 @media only screen and (max-width: 600px) {
     :root
     {

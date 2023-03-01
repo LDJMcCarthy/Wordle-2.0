@@ -17,7 +17,7 @@
         <nav class="navbar navbar-expand sticky-top"> <!-- Influenced by https://www.w3schools.com/bootstrap5/bootstrap_navbar.php -->
             <div class="container-fluid">
                 <div class="nav-item">
-                    <a class="nav-link btn" data-bs-toggle="offcanvas" href="#offcanvas" role="button" aria-controls="offcanvas">
+                    <a class="nav-link btn" data-bs-toggle="offcanvas" href="#offcanvas" role="button" aria-controls="offcanvas" tabindex="-1">
                         <i class="fa-solid fa-bars"></i>
                     </a>
                 </div>
@@ -25,7 +25,7 @@
                     <div>Wordle-2.0</div>
                 </div>
                 <div class="nav-item">
-                    <a class="nav-link" data-bs-toggle="modal" data-bs-target="#settings">
+                    <a class="nav-link" data-bs-toggle="modal" data-bs-target="#settings" tabindex="-1">
                         <i class="fa-solid fa-gear"></i>
                     </a>
                 </div>
@@ -117,28 +117,30 @@
         
         
         <!-- Result Modal -->
-        <div class="modal" tabindex="-1" id="results">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title text-center">The results are in...</h5>
-                    </div>
+        <div class="modal fade" tabindex="-1" id="results"  data-bs-backdrop="static">
+            <div class="modal-dialog results-dialog">
+                <div class="modal-content p-3">
                     <div class="modal-body">
-                        <div id="returned_result">
-                            <h5 id="correctly_guessed">Congradulations! You have correctly guessed the word.</h5>
-                            <h5 id="incorrectly_guessed">Boo hoo! You have not guessed the correct word. The correct word was <span id="correct_word"></span>. Why not try again?</h5>
+                        <div>
+                            <h5 id="results_feedback"></h5>
                         </div>
                         <div id="user_statistics">
                             <div class="displayed_statistics"></div>
-                            <button type="button" id="share" class="btn btn-secondary">Share <i class="fa-solid fa-share"></i></button>
                         </div>
-                        <div>
-                            <button type="button" id="retry" class="btn btn-secondary">Play again</button>
+                        <div class="row mt-4">
+                            <div class="col-6">
+                                <button type="button" id="share" class="btn btn-secondary result-btn">Share <i class="fa-solid fa-share"></i></button>
+                            </div>
+                            <div class="col-6">
+                                <button type="button" id="retry" class="btn btn-secondary result-btn">Play again</button>
+                            </div>
                         </div>
                     </div>
+                    <!--
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     </div>
+                -->
                 </div>
             </div>
         </div>
@@ -208,7 +210,7 @@
         </div>
 
         <div class="row keyboard-container">
-            <div class="keyboard">
+            <div class="keyboard" id="keyboard">
                 <div>
                     <div class="key" id="Q">Q</div>
                     <div class="key" id="W">W</div>
@@ -252,6 +254,7 @@
         <script src="assets/js/words/4.js"></script>
         <script src="assets/js/words/5.js"></script>
         <script src="assets/js/words/6.js"></script>
+        <script src="assets/js/results.js"></script>
         <script src="https://kit.fontawesome.com/37aedfb0cb.js" crossorigin="anonymous"></script> <!-- https://fontawesome.com/  -->
     </body>     
 </html>

@@ -46,7 +46,7 @@ function setupGame(numberOfLetters) {
 
     /* Reset the keyboard */
     document.querySelectorAll('.key').forEach((key) => {
-        key.classList.remove('wrong', 'wrong-place', 'correct-place');
+        key.classList.remove('correct-place', 'wrong-place', 'wrong')
     });
 
     /* Reset the current row and column counter */
@@ -114,4 +114,5 @@ function hideError()
 
 document.querySelector('#retry').addEventListener('click', function () {
     setupGame(game_status.active);
+    resultsModal.hide();
 });

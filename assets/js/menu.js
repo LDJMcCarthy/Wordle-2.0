@@ -13,6 +13,16 @@ document.querySelectorAll('.gamemode-link').forEach((element) => {
         {
             document.querySelector('.gamemode-link.active').classList.remove('active');
             target.classList.add('active');
+
+            const number = parseInt(target.querySelector('.col-12 p').innerText);;
+            if(game_status['daily'][number])
+            {
+                document.querySelector('#play-button').innerText = 'Practise';
+            }
+            else
+            {
+                document.querySelector('#play-button').innerText = 'Play';
+            }
         }
     });
 });

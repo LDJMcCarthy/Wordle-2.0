@@ -67,51 +67,62 @@ document.querySelectorAll('.key').forEach((key) => {
 
                     for (let i = 0; i < word.length; i++)
                     {
-                        if (word[i] == game_status["word"][game_status.active][i])
-                        {
-                            document.querySelectorAll('.game-row')[row].querySelectorAll('.game-column')[i].classList.add('correct-place');
-                            document.querySelector('#' + word[i]).classList.remove('wrong-place');
-                            document.querySelector('#' + word[i]).classList.remove('wrong');
-                            document.querySelector('#' + word[i]).classList.add('correct-place');
 
-                            greenCount++;
-                        }
-                        else if (game_status["word"][game_status.active].includes(word[i]))
-                        {
-                            document.querySelectorAll('.game-row')[row].querySelectorAll('.game-column')[i].classList.add('wrong-place');
-                            
-                            if (document.querySelector('#' + word[i]).classList.contains('correct-place') == false)
+                        setTimeout(function() {
+                            if (word[i] == game_status["word"][game_status.active][i])
                             {
+                                document.querySelectorAll('.game-row')[row].querySelectorAll('.game-column')[i].classList.add('correct-place');
+                                document.querySelector('#' + word[i]).classList.remove('wrong-place');
                                 document.querySelector('#' + word[i]).classList.remove('wrong');
-                                document.querySelector('#' + word[i]).classList.add('wrong-place');
+                                document.querySelector('#' + word[i]).classList.add('correct-place');
+
+                                greenCount++;
                             }
+                            else if (game_status["word"][game_status.active].includes(word[i]))
+                            {
+                                document.querySelectorAll('.game-row')[row].querySelectorAll('.game-column')[i].classList.add('wrong-place');
+                                
+                                if (document.querySelector('#' + word[i]).classList.contains('correct-place') == false)
+                                {
+                                    document.querySelector('#' + word[i]).classList.remove('wrong');
+                                    document.querySelector('#' + word[i]).classList.add('wrong-place');
+                                }
+                            }
+                            else
+                            {
+                                document.querySelectorAll('.game-row')[row].querySelectorAll('.game-column')[i].classList.add('wrong');
+                                document.querySelector('#' + word[i]).classList.add('wrong');
+                            }
+
+                        },i * 500);
+
+                    }
+
+                    setTimeout(function() {
+                        if(greenCount == game_status.active)
+                        {
+                            /* Show win */
+                            setTimeout(function(){showResult(true)}, 1000);
                         }
+
                         else
                         {
-                            document.querySelectorAll('.game-row')[row].querySelectorAll('.game-column')[i].classList.add('wrong');
-                            document.querySelector('#' + word[i]).classList.add('wrong');
+                            row++;
+                            column = 0;
                         }
-                    }
 
+                        if (row == (game_status.active + 1))
+                        {
+                            /* Show lost */
+                            setTimeout(function(){showResult(false)}, 1000);
+                        }
 
-                    if(greenCount == game_status.active)
-                    {
-                        /* Show win */
-                        alert('win');
                         game_status['daily'][game_status.active] = true;
-                    }
-                    else
-                    {
-                        row++;
-                        column = 0;
-                    }
+                        document.querySelector('#play-button').innerText = 'Practise';
+                        document.querySelector('.gamemode-link.active i').classList.add('text-success');
+                        document.querySelector('.gamemode-link.active p').classList.add('text-success');
 
-                    if (row == (game_status.active + 1))
-                    {
-                        /* Show lost */
-                        alert('lost');
-                        game_status['daily'][game_status.active] = true;
-                    }
+                    },2000);
 
                 } 
                 else
@@ -124,4 +135,21 @@ document.querySelectorAll('.key').forEach((key) => {
         }
 
     });
+});
+
+/* Allow the user to type answers */
+window.addEventListener('keyup', function(event)
+{
+    if (event.keyCode == 13)
+    {
+        document.querySelector('#enter').click();
+    }
+    else if (event.keyCode == 8)
+    {
+        document.querySelector('#delete').click();
+    }
+    else
+    {
+        document.querySelector('#' +  String.fromCharCode(event.keyCode)).click();
+    }
 });
