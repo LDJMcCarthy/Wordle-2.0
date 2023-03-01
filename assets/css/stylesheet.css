@@ -149,6 +149,11 @@ p{
     justify-content: center;
 }
 
+#results .modal-header, #results .modal-footer
+{
+    justify-content: center;
+}
+
 .modal-body
 {
     font-size: 1.25rem
