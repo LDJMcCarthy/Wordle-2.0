@@ -1,9 +1,32 @@
 const menu = new bootstrap.Offcanvas(document.querySelector('#offcanvas'));
 
+let game_status = 
+{
+    daily: 
+    {
+        4: false,
+        5: false,
+        6: false
+    },
+    word:
+    {
+        4: '',
+        5: '',
+        6: ''
+    },
+    active: 5
+};
+
+window.addEventListener('DOMContentLoaded', function () {
+    setupGame(5);
+});
+
 function setupGame(numberOfLetters) {
     /* Reset the game board */
     const board = document.querySelector('#game-board');
     board.innerHTML = '';
+
+    game_status['active'] = numberOfLetters;
 
     for (let i = 0; i < numberOfLetters + 1; i++)
     {
@@ -34,6 +57,37 @@ function setupGame(numberOfLetters) {
     hideError();
 
     /* Choose a word based off current selection */
+    if (game_status['daily'][numberOfLetters] == false)
+    {
+        if (numberOfLetters == 4)
+        {
+            game_status['word'][numberOfLetters] = four[dateCalc()].toUpperCase();
+        }
+        else if (numberOfLetters == 5)
+        {
+            game_status['word'][numberOfLetters] = five[dateCalc()].toUpperCase();
+        }
+        else
+        {
+            game_status['word'][numberOfLetters] = six[dateCalc()].toUpperCase();
+        }
+    }
+    else
+    {
+        if (numberOfLetters == 4)
+        {
+            game_status["word"][numberOfLetters] = four[Math.floor(Math.random() * four.length)].toUpperCase();
+        }
+        else if (numberOfLetters == 5)
+        {
+            game_status["word"][numberOfLetters] = five[Math.floor(Math.random() * five.length)].toUpperCase();
+        }
+        else
+        {
+            game_status["word"][numberOfLetters] = six[Math.floor(Math.random() * six.length)].toUpperCase();
+        }
+    }
+
 
     /* Hide the menu */
     menu.hide();
