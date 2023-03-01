@@ -26,7 +26,7 @@
                 </div>
                 <div class="nav-item">
                     <a class="nav-link" data-bs-toggle="modal" data-bs-target="#settings">
-                        <i class="fa-solid fa-gear"></i>
+                        <i class="fa-szolid fa-gear"></i>
                     </a>
                 </div>
             </div>
@@ -124,7 +124,17 @@
                         <h5 class="modal-title text-center">The results are in...</h5>
                     </div>
                     <div class="modal-body">
-                        <div id="returned_result"></div>
+                        <div id="returned_result">
+                            <h5 id="correctly_guessed">Congradulations! You have correctly guessed the word.</h5>
+                            <h5 id="incorrectly_guessed">Boo hoo! You have not guessed the correct word. The correct word was <span id="correct_word"></span>. Why not try again?</h5>
+                        </div>
+                        <div id="user_statistics">
+                            <div class="displayed_statistics"></div>
+                            <button type="button" id="share" class="btn btn-secondary">Share <i class="fa-solid fa-share"></i></button>
+                        </div>
+                        <div>
+                            <button type="button" id="retry" class="btn btn-secondary">Play again</button>
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

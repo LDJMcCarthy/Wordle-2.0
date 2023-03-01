@@ -182,7 +182,9 @@ p{
     cursor: pointer;
 }
 
-
+#incorrectly_guessed{
+    display: none;
+}
 @media only screen and (max-width: 600px) {
     :root
     {
