@@ -63,15 +63,15 @@ function setupGame(numberOfLetters) {
     {
         if (numberOfLetters == 4)
         {
-            game_status['word'][numberOfLetters] = four[dateCalc()].toUpperCase();
+            game_status['word'][numberOfLetters] = four[dateCalc() % four.length].toUpperCase();
         }
         else if (numberOfLetters == 5)
         {
-            game_status['word'][numberOfLetters] = five[dateCalc()].toUpperCase();
+            game_status['word'][numberOfLetters] = five[dateCalc() % five.length].toUpperCase();
         }
         else
         {
-            game_status['word'][numberOfLetters] = six[dateCalc()].toUpperCase();
+            game_status['word'][numberOfLetters] = six[dateCalc() % five.length].toUpperCase();
         }
     }
     else
