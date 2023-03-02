@@ -101,6 +101,10 @@ document.querySelectorAll('.key').forEach((key) => {
                     setTimeout(function() {
                         if(greenCount == game_status.active)
                         {
+                            game_status['daily'][game_status.active] = true;
+                            document.querySelector('#play-button').innerText = 'Practise';
+                            document.querySelector('.gamemode-link.active i').classList.add('text-success');
+                            document.querySelector('.gamemode-link.active p').classList.add('text-success');
                             /* Show win */
                             setTimeout(function(){showResult(true)}, 1000);
                         }
@@ -113,16 +117,15 @@ document.querySelectorAll('.key').forEach((key) => {
 
                         if (row == (game_status.active + 1))
                         {
+                            game_status['daily'][game_status.active] = true;
+                            document.querySelector('#play-button').innerText = 'Practise';
+                            document.querySelector('.gamemode-link.active i').classList.add('text-danger');
+                            document.querySelector('.gamemode-link.active p').classList.add('text-danger');
                             /* Show lost */
                             setTimeout(function(){showResult(false)}, 1000);
                         }
 
-                        game_status['daily'][game_status.active] = true;
-                        document.querySelector('#play-button').innerText = 'Practise';
-                        document.querySelector('.gamemode-link.active i').classList.add('text-success');
-                        document.querySelector('.gamemode-link.active p').classList.add('text-success');
-
-                    },2000);
+                    }, (word.length - 1) * 500);
 
                 } 
                 else
@@ -148,7 +151,7 @@ window.addEventListener('keyup', function(event)
     {
         document.querySelector('#delete').click();
     }
-    else
+    else if (event.keyCode >= 65 && event.keyCode <= 90)
     {
         document.querySelector('#' +  String.fromCharCode(event.keyCode)).click();
     }
