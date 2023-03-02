@@ -39,6 +39,10 @@ document.querySelectorAll('.key').forEach((key) => {
             {
                 showError('Not enough letters!');
             }
+            else if (game_status.submitted)
+            {
+                showError('Game already completed! Please start a new one from the menu.');
+            }
             else
             {
                 let word = '';
@@ -107,6 +111,8 @@ document.querySelectorAll('.key').forEach((key) => {
                             document.querySelector('.gamemode-link.active p').classList.add('text-success');
                             /* Show win */
                             setTimeout(function(){showResult(true)}, 1000);
+
+                            game_status.submitted = true;
                         }
 
                         else
@@ -123,6 +129,8 @@ document.querySelectorAll('.key').forEach((key) => {
                             document.querySelector('.gamemode-link.active p').classList.add('text-danger');
                             /* Show lost */
                             setTimeout(function(){showResult(false)}, 1000);
+
+                            game_status.submitted = true;
                         }
 
                     }, (word.length - 1) * 500);

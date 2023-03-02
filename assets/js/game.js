@@ -14,7 +14,8 @@ let game_status =
         5: '',
         6: ''
     },
-    active: 5
+    active: 5,
+    submitted: false
 };
 
 window.addEventListener('DOMContentLoaded', function () {
@@ -27,6 +28,7 @@ function setupGame(numberOfLetters) {
     board.innerHTML = '';
 
     game_status['active'] = numberOfLetters;
+    game_status['submitted'] = false;
 
     for (let i = 0; i < numberOfLetters + 1; i++)
     {

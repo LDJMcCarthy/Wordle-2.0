@@ -146,14 +146,14 @@ p{
     cursor: pointer;
 }
 
-#settings .modal-header, #settings .modal-footer
+#settings .modal-header, #settings .modal-footer, #results .modal-header, #results .modal-footer
 {
     justify-content: center;
 }
 
-#results .modal-header, #results .modal-footer
+#results .modal-header
 {
-    justify-content: center;
+    border-bottom: none;
 }
 
 .modal-body
