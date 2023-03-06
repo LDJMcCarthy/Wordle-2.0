@@ -2,6 +2,7 @@
 
 let row = 0;
 let column = 0;
+let lastKey;
 
 /* Add event listeners */
 document.querySelectorAll('.key').forEach((key) => {
@@ -151,16 +152,24 @@ document.querySelectorAll('.key').forEach((key) => {
 /* Allow the user to type answers */
 window.addEventListener('keyup', function(event)
 {
+    
+    if (event.keyCode == lastKey && event.keyCode == 13)
+    {
+        return;
+    }
     if (event.keyCode == 13)
     {
+        lastKey = event.keyCode;
         document.querySelector('#enter').click();
     }
     else if (event.keyCode == 8)
     {
+        lastKey = event.keyCode;
         document.querySelector('#delete').click();
     }
     else if (event.keyCode >= 65 && event.keyCode <= 90)
     {
+        lastKey = event.keyCode;
         document.querySelector('#' +  String.fromCharCode(event.keyCode)).click();
     }
 });
