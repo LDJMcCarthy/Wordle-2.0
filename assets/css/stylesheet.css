@@ -201,17 +201,33 @@ padding-right: 1.5rem;
     border: 1px solid #fff;
     background-color: #484848;
 }
+.stat1 .statistics_chart
+{
+    width: 10%
+}
+.stat2 .statistics_chart
+{
+    width: 10%
+}
 .stat3 .statistics_chart
 {
-    width: 30%
-}
-.stat5 .statistics_chart
-{
-    width: 90%
+    width: 40%
 }
 .stat4 .statistics_chart
 {
     width: 60%
+}
+.stat5 .statistics_chart
+{
+    width: 50%
+}
+.stat6 .statistics_chart
+{
+    width: 100%
+}
+.stat7 .statistics_chart
+{
+    width: 10%
 }
 .today_result
 {
