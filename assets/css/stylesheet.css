@@ -193,10 +193,29 @@ padding-right: 1.5rem;
 }
 .statistics_chart
 {
-    display: inline;
-    min-width:90% !important;
-    border: 1px solid #f0f0f0;
-    background-color: #f0f0f0;
+    display: inline-block;
+    text-align: center;
+    max-width:90%;
+    min-width:10%;
+    color: #ffffff;
+    border: 1px solid #fff;
+    background-color: #484848;
+}
+.stat3 .statistics_chart
+{
+    width: 30%
+}
+.stat5 .statistics_chart
+{
+    width: 90%
+}
+.stat4 .statistics_chart
+{
+    width: 60%
+}
+.today_result
+{
+    background-color: #71c24e;
 }
 .form-switch
 {
