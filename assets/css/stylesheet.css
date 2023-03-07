@@ -129,6 +129,7 @@ p{
     background-color: #171717;
     color: #ffffff;
 }
+
 .correct-place{
     background-color: #71c24e !important;
     color: #ffffff;
@@ -197,10 +198,22 @@ padding-right: 1.5rem;
     text-align: center;
     max-width:90%;
     min-width:10%;
-    color: #ffffff;
+    color: #000000;
     border: 1px solid #fff;
+    background-color: #f0f0f0;
+}
+
+[data-bs-theme="dark"] .statistics_chart
+{
+    display: inline-block;
+    text-align: center;
+    max-width:90%;
+    min-width:10%;
+    color: #fff;
+    border: 1px solid #212529;
     background-color: #484848;
 }
+
 .stat1 .statistics_chart
 {
     width: 10%
@@ -231,7 +244,7 @@ padding-right: 1.5rem;
 }
 .today_result
 {
-    background-color: #71c24e;
+    background-color: #71c24e !important;
 }
 .form-switch
 {
