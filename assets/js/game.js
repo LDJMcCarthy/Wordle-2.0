@@ -15,7 +15,11 @@ let game_status =
         6: ''
     },
     active: 5,
-    submitted: false
+    submitted: false,
+    day: 0, /* Update on load */
+    hardMode: false,
+    hardModeLetters: new Set(),
+    guesses: []
 };
 
 window.addEventListener('DOMContentLoaded', function () {
@@ -57,6 +61,10 @@ function setupGame(numberOfLetters) {
 
     /* Reset the error text */
     hideError();
+
+    /* Reset the guesses and hardModeLetters attributes */
+    game_status.guesses = [];
+    game_status.hardModeLetters = new Set();
 
     /* Choose a word based off current selection */
     if (game_status['daily'][numberOfLetters] == false)
@@ -117,4 +125,9 @@ function hideError()
 document.querySelector('#retry').addEventListener('click', function () {
     setupGame(game_status.active);
     resultsModal.hide();
+});
+
+/* Listen for changes to hard mode */
+document.querySelector('#hardModeToggler').addEventListener('click', function (event) {
+    game_status.hardMode = event.target.checked;
 });

@@ -51,97 +51,117 @@ document.querySelectorAll('.key').forEach((key) => {
                     word += letter.innerText;
                 });
 
-                let valid = false
+                /* Check hard mode */
+                let hardModeSatisfied = true;
+                game_status.hardModeLetters.forEach((letter) => {
+                    if (word.includes(letter) == false) {
+                        hardModeSatisfied = false;
+                    }
+                });
 
-                if (game_status.active == 4)
-                {
-                    valid = four.includes(word);
-                }
-                else if (game_status.active == 5)
-                {
-                    valid = five.includes(word);
+                if (game_status.hardMode && !hardModeSatisfied) {
+                    showError('You must use previously revealed hints in your guess whilst in hard mode.');
                 }
                 else
                 {
-                    valid = six.includes(word);
-                }
+                    game_status.guesses.push(word.split(''));
 
-                if (valid)
-                {
-                    let greenCount = 0;
+                    let valid = false
 
-                    for (let i = 0; i < word.length; i++)
+                    if (game_status.active == 4)
                     {
-
-                        setTimeout(function() {
-                            if (word[i] == game_status["word"][game_status.active][i])
-                            {
-                                document.querySelectorAll('.game-row')[row].querySelectorAll('.game-column')[i].classList.add('correct-place');
-                                document.querySelector('#' + word[i]).classList.remove('wrong-place');
-                                document.querySelector('#' + word[i]).classList.remove('wrong');
-                                document.querySelector('#' + word[i]).classList.add('correct-place');
-
-                                greenCount++;
-                            }
-                            else if (game_status["word"][game_status.active].includes(word[i]))
-                            {
-                                document.querySelectorAll('.game-row')[row].querySelectorAll('.game-column')[i].classList.add('wrong-place');
-                                
-                                if (document.querySelector('#' + word[i]).classList.contains('correct-place') == false)
-                                {
-                                    document.querySelector('#' + word[i]).classList.remove('wrong');
-                                    document.querySelector('#' + word[i]).classList.add('wrong-place');
-                                }
-                            }
-                            else
-                            {
-                                document.querySelectorAll('.game-row')[row].querySelectorAll('.game-column')[i].classList.add('wrong');
-                                document.querySelector('#' + word[i]).classList.add('wrong');
-                            }
-
-                        },i * 500);
-
+                        valid = four.includes(word);
+                    }
+                    else if (game_status.active == 5)
+                    {
+                        valid = five.includes(word);
+                    }
+                    else
+                    {
+                        valid = six.includes(word);
                     }
 
-                    setTimeout(function() {
-                        if(greenCount == game_status.active)
-                        {
-                            game_status['daily'][game_status.active] = true;
-                            document.querySelector('#play-button').innerText = 'Practise';
-                            document.querySelector('.gamemode-link.active i').classList.add('text-success');
-                            document.querySelector('.gamemode-link.active p').classList.add('text-success');
-                            /* Show win */
-                            setTimeout(function(){showResult(true)}, 1000);
+                    if (valid)
+                    {
+                        let greenCount = 0;
 
-                            game_status.submitted = true;
+                        for (let i = 0; i < word.length; i++)
+                        {
+
+                            setTimeout(function() {
+                                if (word[i] == game_status["word"][game_status.active][i])
+                                {
+                                    document.querySelectorAll('.game-row')[row].querySelectorAll('.game-column')[i].classList.add('correct-place');
+                                    document.querySelector('#' + word[i]).classList.remove('wrong-place');
+                                    document.querySelector('#' + word[i]).classList.remove('wrong');
+                                    document.querySelector('#' + word[i]).classList.add('correct-place');
+
+                                    game_status.hardModeLetters.add(word[i]);
+
+                                    greenCount++;
+                                }
+                                else if (game_status["word"][game_status.active].includes(word[i]))
+                                {
+                                    document.querySelectorAll('.game-row')[row].querySelectorAll('.game-column')[i].classList.add('wrong-place');
+                                    
+                                    if (document.querySelector('#' + word[i]).classList.contains('correct-place') == false)
+                                    {
+                                        document.querySelector('#' + word[i]).classList.remove('wrong');
+                                        document.querySelector('#' + word[i]).classList.add('wrong-place');
+                                    }
+
+                                    game_status.hardModeLetters.add(word[i]);
+                                }
+                                else
+                                {
+                                    document.querySelectorAll('.game-row')[row].querySelectorAll('.game-column')[i].classList.add('wrong');
+                                    document.querySelector('#' + word[i]).classList.add('wrong');
+                                }
+
+                            },i * 500);
+
                         }
 
-                        else
-                        {
-                            row++;
-                            column = 0;
-                        }
+                        setTimeout(function() {
+                            if(greenCount == game_status.active)
+                            {
+                                game_status['daily'][game_status.active] = true;
+                                document.querySelector('#play-button').innerText = 'Practise';
+                                document.querySelector('.gamemode-link.active i').classList.add('text-success');
+                                document.querySelector('.gamemode-link.active p').classList.add('text-success');
+                                /* Show win */
+                                setTimeout(function(){showResult(true)}, 1000);
 
-                        if (row == (game_status.active + 1))
-                        {
-                            game_status['daily'][game_status.active] = true;
-                            document.querySelector('#play-button').innerText = 'Practise';
-                            document.querySelector('.gamemode-link.active i').classList.add('text-danger');
-                            document.querySelector('.gamemode-link.active p').classList.add('text-danger');
-                            /* Show lost */
-                            setTimeout(function(){showResult(false)}, 1000);
+                                game_status.submitted = true;
+                            }
 
-                            game_status.submitted = true;
-                        }
+                            else
+                            {
+                                row++;
+                                column = 0;
+                            }
 
-                    }, (word.length - 1) * 500);
+                            if (row == (game_status.active + 1))
+                            {
+                                game_status['daily'][game_status.active] = true;
+                                document.querySelector('#play-button').innerText = 'Practise';
+                                document.querySelector('.gamemode-link.active i').classList.add('text-danger');
+                                document.querySelector('.gamemode-link.active p').classList.add('text-danger');
+                                /* Show lost */
+                                setTimeout(function(){showResult(false)}, 1000);
 
-                } 
-                else
-                {
-                    showError('Not a valid word!');
-                } 
+                                game_status.submitted = true;
+                            }
 
+                        }, (word.length - 1) * 500);
+
+                    } 
+                    else
+                    {
+                        showError('Not a valid word!');
+                    } 
+
+                }
 
             }
         }
