@@ -156,7 +156,17 @@ display: None;
     padding-left: 3px;
     padding-right: 3px;
 }
-
+#instructions .left
+{
+    font-family: 'Zilla Slab', serif;
+    text-align: left;
+}
+#instructions
+{
+    --bs-modal-width: 500px;
+    font-family: 'Zilla Slab', serif;
+    text-align: left;
+}
 #settings .modal-header, #settings .modal-footer, #results .modal-header, #results .modal-footer
 {
     justify-content: center;
