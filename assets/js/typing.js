@@ -134,6 +134,10 @@ document.querySelectorAll('.key').forEach((key) => {
                                 setTimeout(function(){showResult(true)}, 1000);
 
                                 game_status.submitted = true;
+
+                                game_status.streak++;
+
+                                game_status.stats[game_status.row + 1]++;
                                 saveState();
                             }
 
@@ -155,6 +159,8 @@ document.querySelectorAll('.key').forEach((key) => {
                                 setTimeout(function(){showResult(false)}, 1000);
 
                                 game_status.submitted = true;
+
+                                game_status.streak = 0;
                                 saveState();
                             }
 

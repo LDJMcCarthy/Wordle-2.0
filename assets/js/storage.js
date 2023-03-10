@@ -1,5 +1,8 @@
 let game_status = {};
 
+const instructionModal = new bootstrap.Modal(document.querySelector('#instructions'));
+
+
 if (localStorage.getItem('game_status') === null)
 {
     game_status = 
@@ -38,6 +41,7 @@ if (localStorage.getItem('game_status') === null)
     };
 
     /* Show help modal */
+    instructionModal.show();
 } else {
     /* Load and decode */
     game_status = JSON.parse(localStorage.getItem('game_status'));
@@ -51,12 +55,16 @@ if (localStorage.getItem('game_status') === null)
                 if (game_status.daily[x][1])
                 {
                     document.querySelector('#button_' + x + '_letters i').classList.add('text-success');
-                    document.querySelector('#button_' + x + '_letters p').classList.add('text-success');    
+                    document.querySelector('#button_' + x + '_letters p').classList.add('text-success');   
                 }
                 else
                 {
                     document.querySelector('#button_' + x + '_letters i').classList.add('text-danger');
                     document.querySelector('#button_' + x + '_letters p').classList.add('text-danger');    
+                }
+                if (game_status.active == x)
+                {
+                    document.querySelector('#play-button').innerText = 'Practise';
                 }
             }
         }
@@ -64,7 +72,7 @@ if (localStorage.getItem('game_status') === null)
         game_status.hardModeLetters = new Set(game_status.hardModeLetters);
     } else {
         game_status.day = dateCalc();
-        
+
         game_status.daily['4'] = [false, undefined];
         game_status.daily['5'] = [false, undefined];
         game_status.daily['6'] = [false, undefined];

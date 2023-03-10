@@ -15,7 +15,7 @@ document.querySelectorAll('.gamemode-link').forEach((element) => {
             target.classList.add('active');
 
             const number = parseInt(target.querySelector('.col-12 p').innerText);
-            if(game_status['daily'][number])
+            if(game_status['daily'][number][0])
             {
                 document.querySelector('#play-button').innerText = 'Practise';
             }
