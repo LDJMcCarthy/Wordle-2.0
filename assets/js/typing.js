@@ -35,6 +35,17 @@ document.querySelectorAll('.key').forEach((key) => {
         /* Handle enter being pressed */
         else if (target == 'ENTER')
         {
+            /* Set locked if needed */
+            if (game_status.daily[game_status.active][0] == false)
+            {
+                game_status.locked = true;
+                saveState();
+
+                document.querySelector('#play-warning').classList.remove('d-none');
+
+                document.querySelector('#play-button').innerText = 'Game in progress';
+            }
+
             if (currentRow.querySelectorAll('.game-column').length != game_status.column)
             {
                 showError('Not enough letters!');
@@ -138,6 +149,10 @@ document.querySelectorAll('.key').forEach((key) => {
                                 game_status.streak++;
 
                                 game_status.stats[game_status.row + 1]++;
+
+                                game_status.locked = false;
+                                document.querySelector('#play-warning').classList.add('d-none');
+
                                 saveState();
                             }
 
@@ -161,6 +176,9 @@ document.querySelectorAll('.key').forEach((key) => {
                                 game_status.submitted = true;
 
                                 game_status.streak = 0;
+
+                                game_status.locked = false;
+                                document.querySelector('#play-warning').classList.add('d-none');
                                 saveState();
                             }
 

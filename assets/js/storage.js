@@ -37,7 +37,8 @@ if (localStorage.getItem('game_status') === null)
         guesses: [],
         streak: 0,
         row: 0,
-        column: 0
+        column: 0,
+        locked: false
     };
 
     /* Show help modal */
@@ -99,12 +100,18 @@ if (localStorage.getItem('game_status') === null)
 
 
     /* Update active indicator */
-    document.querySelector('#button_' + game_status.active + '_letters').click();
     window.addEventListener('DOMContentLoaded', function () {
+        document.querySelector('#button_' + game_status.active + '_letters').click();
         setupGame(game_status.active, false);
     });
 
     document.querySelector('#hardModeToggler').checked = game_status.hardMode;
+
+    if (game_status.locked)
+    {
+        document.querySelector('#play-warning').classList.remove('d-none');
+        document.querySelector('#play-button').innerText = 'Game in progress';
+    }
 }
 
 function saveState()
