@@ -1,14 +1,11 @@
 /* Handle the user typing */
-
-let row = 0;
-let column = 0;
 let lastKey;
 
 /* Add event listeners */
 document.querySelectorAll('.key').forEach((key) => {
     key.addEventListener('click', function(event) {
         hideError();
-        const currentRow = document.querySelectorAll('.game-row')[row];
+        const currentRow = document.querySelectorAll('.game-row')[game_status.row];
 
         let target = event.target;
         if (target.classList.contains('fa-solid'))
@@ -20,23 +17,25 @@ document.querySelectorAll('.key').forEach((key) => {
 
         if (target != 'ENTER' && target != '')
         {
-            if (currentRow.querySelectorAll('.game-column').length != column)
+            if (currentRow.querySelectorAll('.game-column').length != game_status.column)
             {
-                currentRow.querySelectorAll('.game-column')[column].innerText = target;
-                column++;
+                currentRow.querySelectorAll('.game-column')[game_status.column].innerText = target;
+                game_status.column++;
+                saveState();
             }
         }
 
-        else if (target == '' && column > 0)
+        else if (target == '' && game_status.column > 0)
         {
-            column--;
-            currentRow.querySelectorAll('.game-column')[column].innerText = '';
+            game_status.column--;
+            saveState();
+            currentRow.querySelectorAll('.game-column')[game_status.column].innerText = '';
         }
 
         /* Handle enter being pressed */
         else if (target == 'ENTER')
         {
-            if (currentRow.querySelectorAll('.game-column').length != column)
+            if (currentRow.querySelectorAll('.game-column').length != game_status.column)
             {
                 showError('Not enough letters!');
             }
@@ -47,7 +46,7 @@ document.querySelectorAll('.key').forEach((key) => {
             else
             {
                 let word = '';
-                document.querySelectorAll('.game-row')[row].querySelectorAll('.game-column').forEach((letter) => {
+                document.querySelectorAll('.game-row')[game_status.row].querySelectorAll('.game-column').forEach((letter) => {
                     word += letter.innerText;
                 });
 
@@ -91,18 +90,19 @@ document.querySelectorAll('.key').forEach((key) => {
                             setTimeout(function() {
                                 if (word[i] == game_status["word"][game_status.active][i])
                                 {
-                                    document.querySelectorAll('.game-row')[row].querySelectorAll('.game-column')[i].classList.add('correct-place');
+                                    document.querySelectorAll('.game-row')[game_status.row].querySelectorAll('.game-column')[i].classList.add('correct-place');
                                     document.querySelector('#' + word[i]).classList.remove('wrong-place');
                                     document.querySelector('#' + word[i]).classList.remove('wrong');
                                     document.querySelector('#' + word[i]).classList.add('correct-place');
 
                                     game_status.hardModeLetters.add(word[i]);
+                                    saveState();
 
                                     greenCount++;
                                 }
                                 else if (game_status["word"][game_status.active].includes(word[i]))
                                 {
-                                    document.querySelectorAll('.game-row')[row].querySelectorAll('.game-column')[i].classList.add('wrong-place');
+                                    document.querySelectorAll('.game-row')[game_status.row].querySelectorAll('.game-column')[i].classList.add('wrong-place');
                                     
                                     if (document.querySelector('#' + word[i]).classList.contains('correct-place') == false)
                                     {
@@ -111,10 +111,11 @@ document.querySelectorAll('.key').forEach((key) => {
                                     }
 
                                     game_status.hardModeLetters.add(word[i]);
+                                    saveState();
                                 }
                                 else
                                 {
-                                    document.querySelectorAll('.game-row')[row].querySelectorAll('.game-column')[i].classList.add('wrong');
+                                    document.querySelectorAll('.game-row')[game_status.row].querySelectorAll('.game-column')[i].classList.add('wrong');
                                     document.querySelector('#' + word[i]).classList.add('wrong');
                                 }
 
@@ -125,7 +126,7 @@ document.querySelectorAll('.key').forEach((key) => {
                         setTimeout(function() {
                             if(greenCount == game_status.active)
                             {
-                                game_status['daily'][game_status.active] = true;
+                                game_status['daily'][game_status.active] = [true, true];
                                 document.querySelector('#play-button').innerText = 'Practise';
                                 document.querySelector('.gamemode-link.active i').classList.add('text-success');
                                 document.querySelector('.gamemode-link.active p').classList.add('text-success');
@@ -133,17 +134,20 @@ document.querySelectorAll('.key').forEach((key) => {
                                 setTimeout(function(){showResult(true)}, 1000);
 
                                 game_status.submitted = true;
+                                saveState();
                             }
 
                             else
                             {
-                                row++;
-                                column = 0;
+                                game_status.row++;
+                                game_status.column = 0;
+
+                                saveState();
                             }
 
-                            if (row == (game_status.active + 1))
+                            if (game_status.row == (game_status.active + 1))
                             {
-                                game_status['daily'][game_status.active] = true;
+                                game_status['daily'][game_status.active] = [true, false];
                                 document.querySelector('#play-button').innerText = 'Practise';
                                 document.querySelector('.gamemode-link.active i').classList.add('text-danger');
                                 document.querySelector('.gamemode-link.active p').classList.add('text-danger');
@@ -151,6 +155,7 @@ document.querySelectorAll('.key').forEach((key) => {
                                 setTimeout(function(){showResult(false)}, 1000);
 
                                 game_status.submitted = true;
+                                saveState();
                             }
 
                         }, (word.length - 1) * 500);
