@@ -14,12 +14,23 @@ let game_status =
         5: '',
         6: ''
     },
+    stats:
+    {
+        1: 0,
+        2: 0,
+        3: 0,
+        4: 0,
+        5: 0,
+        6: 0,
+        7: 0,
+    },
     active: 5,
     submitted: false,
     day: 0, /* Update on load */
     hardMode: false,
     hardModeLetters: new Set(),
-    guesses: []
+    guesses: [],
+    streak: 0
 };
 
 window.addEventListener('DOMContentLoaded', function () {
