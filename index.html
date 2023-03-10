@@ -28,7 +28,7 @@
                     <div>Wordle-2.0</div>
                 </div>
                 <div class="nav-item">
-                    <a class="nav-link" data-bs-toggle="modal" data-bs-target="#results" tabindex="-1">
+                    <a class="nav-link" data-bs-toggle="modal" data-bs-target="#stats" tabindex="-1">
                         <i class="fa-solid fa-chart-simple"></i>
                     </a>
                     <a class="nav-link" data-bs-toggle="modal" data-bs-target="#settings" tabindex="-1">
@@ -109,11 +109,11 @@
                                 <li><h6>When pressing submit or enter, the game tiles will change colour to indicate how close you were to getting the word.</h6></li>
                             </ul>
                             <h4>Examples:</h4>
-                            <div class="row game-row"><div class="column game-column wrong">L</div><div class="column game-column wrong">O</div><div class="column game-column wrong">O</div><div class="column game-column wrong">P</div><div class="column game-column correct-place">Y</div></div>
+                            
                             <h6>Green informs you that the letter is in the word and in the correct position.</h6>
-                            <div class="row game-row"><div class="column game-column wrong">G</div><div class="column game-column wrong">O</div><div class="column game-column wrong">A</div><div class="column game-column wrong-place">T</div><div class="column game-column wrong">S</div></div>
+                            
                             <h6>Yellow informs you that the letter is in the word but not in the correct position.</h6>
-                            <div class="row game-row"><div class="column game-column wrong">L</div><div class="column game-column wrong">O</div><div class="column game-column wrong">O</div><div class="column game-column wrong">P</div><div class="column game-column wrong">S</div></div>
+                            
                             <h6>Grey means that the letter is not in the word in any position.</h6>
                         </div>
                     </div>
@@ -121,6 +121,85 @@
             </div>
         </div>
 
+        <!-- Result Modal -->
+        <div class="modal fade" tabindex="-1" id="stats">
+            <div class="modal-dialog results-dialog">
+                <div class="modal-content p-3">
+                    <div class="modal-header">
+                        <h3>Statistics</h3>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div>
+                            <h3>Guess Distribution</h3>
+                        </div>
+                        <div id="user_statistics">
+                            <div class="displayed_statistics">
+                                <p>Statistics</p>
+                                <div class="statistics_box">
+                                    <div class="stat1">
+                                        <div class="statistics_numbers">
+                                            1
+                                        </div>
+                                        <div class="statistics_chart">
+                                            0
+                                        </div>
+                                    </div>
+                                    <div class="stat2">
+                                        <div class="statistics_numbers">
+                                            2
+                                        </div>
+                                        <div class="statistics_chart">
+                                            0
+                                        </div>
+                                    </div>
+                                    <div class="stat3">
+                                        <div class="statistics_numbers">
+                                            3
+                                        </div>
+                                        <div class="statistics_chart today_result">
+                                            4
+                                        </div>
+                                    </div>
+                                    <div class="stat4">
+                                        <div class="statistics_numbers">
+                                            4
+                                        </div>
+                                        <div class="statistics_chart">
+                                            6
+                                        </div>
+                                    </div>
+                                    <div class="stat5">
+                                        <div class="statistics_numbers">
+                                            5
+                                        </div>
+                                        <div class="statistics_chart">
+                                            5
+                                        </div>
+                                    </div>
+                                    <div class="stat6">
+                                        <div class="statistics_numbers">
+                                            6
+                                        </div>
+                                        <div class="statistics_chart">
+                                            10
+                                        </div>
+                                    </div>
+                                    <div class="stat7">
+                                        <div class="statistics_numbers">
+                                            7
+                                        </div>
+                                        <div class="statistics_chart">
+                                            0
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
        
         <!-- Settings modal-->
