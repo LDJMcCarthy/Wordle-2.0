@@ -142,9 +142,19 @@ p{
     background-color: #484848  !important;
     color: #ffffff;
 }
+.nav-item
+{
+    display: inline-flex;
+}
+#temp
+{
+display: None;
+}
 .nav-link
 {
     cursor: pointer;
+    padding-left: 3px;
+    padding-right: 3px;
 }
 
 #settings .modal-header, #settings .modal-footer, #results .modal-header, #results .modal-footer
