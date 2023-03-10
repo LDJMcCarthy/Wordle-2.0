@@ -1,43 +1,6 @@
 const menu = new bootstrap.Offcanvas(document.querySelector('#offcanvas'));
 
-let game_status = 
-{
-    daily: 
-    {
-        4: false,
-        5: false,
-        6: false
-    },
-    word:
-    {
-        4: '',
-        5: '',
-        6: ''
-    },
-    stats:
-    {
-        1: 0,
-        2: 0,
-        3: 0,
-        4: 0,
-        5: 0,
-        6: 0,
-        7: 0,
-    },
-    active: 5,
-    submitted: false,
-    day: 0, /* Update on load */
-    hardMode: false,
-    hardModeLetters: new Set(),
-    guesses: [],
-    streak: 0
-};
-
-window.addEventListener('DOMContentLoaded', function () {
-    setupGame(5);
-});
-
-function setupGame(numberOfLetters) {
+function setupGame(numberOfLetters, reset) {
     /* Reset the game board */
     const board = document.querySelector('#game-board');
     board.innerHTML = '';
@@ -66,60 +29,95 @@ function setupGame(numberOfLetters) {
         key.classList.remove('correct-place', 'wrong-place', 'wrong')
     });
 
-    /* Reset the current row and column counter */
-    row = 0;
-    column = 0;
-
     /* Reset the error text */
     hideError();
 
-    /* Reset the guesses and hardModeLetters attributes */
-    game_status.guesses = [];
-    game_status.hardModeLetters = new Set();
-
-    /* Choose a word based off current selection */
-    if (game_status['daily'][numberOfLetters] == false)
+    if (reset)
     {
-        if (numberOfLetters == 4)
+        /* Reset the current row and column counter */
+        game_status.row = 0;
+        game_status.column = 0;
+
+        /* Reset the guesses and hardModeLetters attributes */
+        game_status.guesses = [];
+        game_status.hardModeLetters = new Set();
+
+        /* Choose a word based off current selection */
+        if (game_status['daily'][numberOfLetters] == false)
         {
-            game_status['word'][numberOfLetters] = four[dateCalc() % four.length].toUpperCase();
-        }
-        else if (numberOfLetters == 5)
-        {
-            game_status['word'][numberOfLetters] = five[dateCalc() % five.length].toUpperCase();
+            if (numberOfLetters == 4)
+            {
+                game_status['word'][numberOfLetters] = four[game_status.day % four.length].toUpperCase();
+            }
+            else if (numberOfLetters == 5)
+            {
+                game_status['word'][numberOfLetters] = five[game_status.day % five.length].toUpperCase();
+            }
+            else
+            {
+                game_status['word'][numberOfLetters] = six[game_status.day % six.length].toUpperCase();
+            }
         }
         else
         {
-            game_status['word'][numberOfLetters] = six[dateCalc() % five.length].toUpperCase();
+            if (numberOfLetters == 4)
+            {
+                game_status["word"][numberOfLetters] = four[Math.floor(Math.random() * four.length)].toUpperCase();
+            }
+            else if (numberOfLetters == 5)
+            {
+                game_status["word"][numberOfLetters] = five[Math.floor(Math.random() * five.length)].toUpperCase();
+            }
+            else
+            {
+                game_status["word"][numberOfLetters] = six[Math.floor(Math.random() * six.length)].toUpperCase();
+            }
         }
+    
     }
     else
     {
-        if (numberOfLetters == 4)
+        for (let r  = 0; r < game_status.guesses.length; r++)
         {
-            game_status["word"][numberOfLetters] = four[Math.floor(Math.random() * four.length)].toUpperCase();
-        }
-        else if (numberOfLetters == 5)
-        {
-            game_status["word"][numberOfLetters] = five[Math.floor(Math.random() * five.length)].toUpperCase();
-        }
-        else
-        {
-            game_status["word"][numberOfLetters] = six[Math.floor(Math.random() * six.length)].toUpperCase();
+            for (let c = 0; c < game_status.active; c++)
+            {
+                const cell = document.querySelectorAll('.game-row')[r].querySelectorAll('.game-column')[c];
+
+                const letter = game_status.guesses[r][c];
+                cell.innerText = letter;
+
+                if (letter == game_status.word[game_status.active][c])
+                {
+                    cell.classList.add('correct-place');
+
+                    document.querySelector('#' + letter).classList.remove('wrong-place');
+                    document.querySelector('#' + letter).classList.remove('wrong');
+                    document.querySelector('#' + letter).classList.add('correct-place');
+                }
+                else if (game_status.word[game_status.active].includes(letter))
+                {
+                    cell.classList.add('wrong-place');
+
+                    if (document.querySelector('#' + letter).classList.contains('correct-place') == false)
+                    {
+                        document.querySelector('#' + letter).classList.remove('wrong');
+                        document.querySelector('#' + letter).classList.add('wrong-place');
+                    }
+                }
+                else
+                {
+                    cell.classList.add('wrong');
+                    document.querySelector('#' + letter).classList.add('wrong');
+                }
+            }
         }
     }
 
 
     /* Hide the menu */
     menu.hide();
-}
 
-function dateCalc()
-{
-    const start_date = new Date("03/01/2023");
-    const today_date = new Date();
-    let days = Math.floor((today_date.getTime() - start_date.getTime())/ (1000 * 3600 * 24));
-    return days;
+    saveState();
 }
 
 function showError(msg)
@@ -134,11 +132,12 @@ function hideError()
 }
 
 document.querySelector('#retry').addEventListener('click', function () {
-    setupGame(game_status.active);
+    setupGame(game_status.active, true);
     resultsModal.hide();
 });
 
 /* Listen for changes to hard mode */
 document.querySelector('#hardModeToggler').addEventListener('click', function (event) {
     game_status.hardMode = event.target.checked;
+    saveState();
 });
