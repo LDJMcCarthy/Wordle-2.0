@@ -93,10 +93,7 @@ p{
     width:100%;
     margin: 0px;
 }
-.row2{
-    width:100%;
-    margin: 0px;
-}
+
 .side-menu{
     width: 375px;
     height: 100%;
@@ -115,20 +112,6 @@ p{
 }
 
 .game-column{
-    width: var(--cell-size);
-    height: var(--cell-size);
-    font-size: var(--cell-font-size);
-    display: block;
-    margin: 2px;
-    background-color: #f0f0f0;
-    text-align: center;
-    font-family: 'Zilla Slab', serif;
-    display: grid;
-    place-items: center;
-    transition: 0.4s;
-}
-
-.game-column2{
     width: var(--cell-size);
     height: var(--cell-size);
     font-size: var(--cell-font-size);
@@ -315,6 +298,30 @@ padding-right: 1.5rem;
 {
     min-width: 40%;
 }
+
+
+.demo-row
+{
+    width: 100%;
+    margin: 0px;
+}
+
+.demo-grid
+{
+    width: var(--cell-size);
+    height: var(--cell-size);
+    font-size: var(--cell-font-size);
+    display: inline-block !important;
+    margin: 2px;
+    background-color: #f0f0f0;
+    text-align: center;
+    font-family: 'Zilla Slab', serif;
+    display: grid;
+    place-items: center;
+    transition: 0.4s;
+}
+
+
 
 @media only screen and (max-width: 600px) {
     :root
