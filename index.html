@@ -115,11 +115,29 @@
                                 <li><h6>When pressing submit or enter, the game tiles will change colour to indicate how close you were to getting the word.</h6></li>
                             </ul>
                             <h4>Examples:</h4>
-                            
+                            <div class="demo-row">
+                                <div class="demo-grid correct-place">S</div>
+                                <div class="demo-grid wrong">N</div>
+                                <div class="demo-grid wrong">O</div>
+                                <div class="demo-grid wrong">W</div>
+                                <div class="demo-grid wrong">Y</div>
+                            </div>
                             <h6>Green informs you that the letter is in the word and in the correct position.</h6>
-                            
+                            <div class="demo-row">
+                                <div class="demo-grid wrong">P</div>
+                                <div class="demo-grid wrong">L</div>
+                                <div class="demo-grid wrong-place">A</div>
+                                <div class="demo-grid wrong">N</div>
+                                <div class="demo-grid wrong">E</div>
+                            </div>
                             <h6>Yellow informs you that the letter is in the word but not in the correct position.</h6>
-                            
+                            <div class="demo-row">
+                                <div class="demo-grid wrong">S</div>
+                                <div class="demo-grid wrong">K</div>
+                                <div class="demo-grid wrong">I</div>
+                                <div class="demo-grid wrong">N</div>
+                                <div class="demo-grid wrong">T</div>
+                            </div>
                             <h6>Grey means that the letter is not in the word in any position.</h6>
                         </div>
                     </div>
@@ -137,6 +155,8 @@
                     </div>
                     <div class="modal-body">
                         <div>
+                            <h5 id="user_streak"></h5>
+                            <br>
                             <h3>Guess Distribution</h3>
                         </div>
                         <div id="user_statistics">
@@ -246,6 +266,8 @@
                     <div class="modal-body">
                         <div>
                             <h5 id="results_feedback"></h5>
+                            <br>
+                            <h5 id="user_streak"></h5>
                         </div>
                         <div id="user_statistics">
                             <div class="displayed_statistics">
