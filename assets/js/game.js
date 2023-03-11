@@ -4,7 +4,6 @@ function setupGame(numberOfLetters, reset) {
     board.innerHTML = '';
 
     game_status['active'] = numberOfLetters;
-    game_status['submitted'] = false;
 
     for (let i = 0; i < numberOfLetters + 1; i++)
     {
@@ -36,12 +35,15 @@ function setupGame(numberOfLetters, reset) {
         game_status.row = 0;
         game_status.column = 0;
 
+        /* Reset submitted */
+        game_status['submitted'] = false;
+
         /* Reset the guesses and hardModeLetters attributes */
         game_status.guesses = [];
         game_status.hardModeLetters = new Set();
 
         /* Choose a word based off current selection */
-        if (game_status['daily'][numberOfLetters] == false)
+        if (game_status['daily'][numberOfLetters] [0]== false)
         {
             if (numberOfLetters == 4)
             {

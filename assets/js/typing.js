@@ -74,8 +74,6 @@ document.querySelectorAll('.key').forEach((key) => {
                 }
                 else
                 {
-                    game_status.guesses.push(word.split(''));
-
                     let valid = false
 
                     if (game_status.active == 4)
@@ -93,6 +91,8 @@ document.querySelectorAll('.key').forEach((key) => {
 
                     if (valid)
                     {
+                        game_status.guesses.push(word.split(''));
+                        
                         let greenCount = 0;
 
                         for (let i = 0; i < word.length; i++)

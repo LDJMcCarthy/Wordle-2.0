@@ -23,9 +23,9 @@ function share()
 {
     let shareText = 'Wordle-2.0 (' + game_status.active + ' letters)\n\n';
     
-    if (row < game_status.active)
+    if (game_status.row < game_status.active)
     {
-        shareText += (row + 1) + '/' + (game_status.active + 1);
+        shareText += (game_status.row + 1) + '/' + (game_status.active + 1);
     }
     else
     {
@@ -34,7 +34,7 @@ function share()
 
     shareText += '\n';
 
-    for (let i = 0; i <= Math.min(row, game_status.active); i++)
+    for (let i = 0; i <= Math.min(game_status.row, game_status.active); i++)
     {
         shareText += '\n';
         
