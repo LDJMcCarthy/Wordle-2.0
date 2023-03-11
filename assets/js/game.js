@@ -1,5 +1,3 @@
-const menu = new bootstrap.Offcanvas(document.querySelector('#offcanvas'));
-
 function setupGame(numberOfLetters, reset) {
     /* Reset the game board */
     const board = document.querySelector('#game-board');

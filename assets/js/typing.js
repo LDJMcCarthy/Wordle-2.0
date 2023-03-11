@@ -137,6 +137,12 @@ document.querySelectorAll('.key').forEach((key) => {
                         setTimeout(function() {
                             if(greenCount == game_status.active)
                             {
+                                if (game_status.streakLastDay == game_status.day - 1 && game_status['daily'][game_status.active][0] == false)
+                                {
+                                    game_status.streak++;
+                                    game_status.streakLastDay++;
+                                }
+
                                 game_status['daily'][game_status.active] = [true, true];
                                 document.querySelector('#play-button').innerText = 'Practise';
                                 document.querySelector('.gamemode-link.active i').classList.add('text-success');
@@ -145,8 +151,6 @@ document.querySelectorAll('.key').forEach((key) => {
                                 setTimeout(function(){showResult(true)}, 1000);
 
                                 game_status.submitted = true;
-
-                                game_status.streak++;
 
                                 game_status.stats[game_status.row + 1]++;
 
@@ -167,6 +171,13 @@ document.querySelectorAll('.key').forEach((key) => {
                             if (game_status.row == (game_status.active + 1))
                             {
                                 game_status['daily'][game_status.active] = [true, false];
+
+                                if (game_status.streakLastDay == game_status.day - 1 && game_status['daily'][4][0] && game_status['daily'][5][0] && game_status['daily'][6][0])
+                                {
+                                    game_status.streak = 0;
+                                    game_status.streakLastDay++;
+                                }
+
                                 document.querySelector('#play-button').innerText = 'Practise';
                                 document.querySelector('.gamemode-link.active i').classList.add('text-danger');
                                 document.querySelector('.gamemode-link.active p').classList.add('text-danger');
@@ -174,8 +185,6 @@ document.querySelectorAll('.key').forEach((key) => {
                                 setTimeout(function(){showResult(false)}, 1000);
 
                                 game_status.submitted = true;
-
-                                game_status.streak = 0;
 
                                 game_status.locked = false;
                                 document.querySelector('#play-warning').classList.add('d-none');

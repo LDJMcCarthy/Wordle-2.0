@@ -14,7 +14,7 @@ themeToggle.addEventListener('change', function () {
 
 if (localStorage.getItem('theme') === null)
 {
-    localStorage.setItem('theme', 'dark')
+    localStorage.setItem('theme', 'light')
 }
 
 document.querySelector('html').setAttribute('data-bs-theme', localStorage.getItem('theme'));

@@ -36,6 +36,7 @@ if (localStorage.getItem('game_status') === null)
         hardModeLetters: new Set(),
         guesses: [],
         streak: 0,
+        streakLastDay: dateCalc() - 1,
         row: 0,
         column: 0,
         locked: false
@@ -96,6 +97,14 @@ if (localStorage.getItem('game_status') === null)
         }
 
     }
+
+    if (game_status.streakLastDay <=  game_status.day - 2)
+    {
+        game_status.streak = 0;
+        game_status.streakLastDay = game_status.day - 1;
+    }
+
+
     saveState();
 
 

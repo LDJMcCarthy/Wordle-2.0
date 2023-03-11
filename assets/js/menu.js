@@ -1,3 +1,12 @@
+const menu = new bootstrap.Offcanvas(document.querySelector('#offcanvas'));
+
+document.querySelector('#menu-button').addEventListener('click', function () {
+    document.querySelector('.gamemode-link.active').classList.remove('active');
+
+    document.querySelector('.gamemode-link[data-value="' + game_status.active + '"]').classList.add('active');
+
+    menu.show();
+});
 
 /* Handle switching number of letters */
 document.querySelectorAll('.gamemode-link').forEach((element) => {
@@ -45,7 +54,12 @@ document.querySelector('#play-button').addEventListener('click', function() {
             document.querySelector('#button_' + game_status.active + '_letters p').classList.add('text-danger');  
 
             game_status.locked = false;
-            game_status.streak = 0;
+            
+            if (game_status.streakLastDay == game_status.day - 1 && game_status['daily'][4][0] && game_status['daily'][5][0] && game_status['daily'][6][0])
+            {
+                game_status.streak = 0;
+                game_status.streakLastDay++;
+            }
 
             document.querySelector('#play-warning').classList.add('d-none');
 
