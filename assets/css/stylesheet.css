@@ -217,8 +217,8 @@ padding-right: 1.5rem;
 }
 .statistics_numbers
 {
-    display: inline;
-    width: 10%;
+    display: inline-block;
+    width: 15px;
     text-align: left;
 }
 .statistics_chart
@@ -253,15 +253,15 @@ padding-right: 1.5rem;
 }
 .stat3 .statistics_chart
 {
-    width: 40%
+    width: 46%
 }
 .stat4 .statistics_chart
 {
-    width: 60%
+    width: 64%
 }
 .stat5 .statistics_chart
 {
-    width: 50%
+    width: 55%
 }
 .stat6 .statistics_chart
 {
