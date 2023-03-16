@@ -28,7 +28,7 @@
                     <div>Wordle-2.0</div>
                 </div>
                 <div class="nav-item">
-                    <a class="nav-link" data-bs-toggle="modal" data-bs-target="#stats" tabindex="-1">
+                    <a class="nav-link" id="stats_button">
                         <i class="fa-solid fa-chart-simple"></i>
                     </a>
                     <a class="nav-link" data-bs-toggle="modal" data-bs-target="#settings" tabindex="-1">
@@ -154,14 +154,9 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <div>
-                            <h5 id="user_streak"></h5>
-                            <br>
-                            <h3>Guess Distribution</h3>
-                        </div>
+                        <h3>Guess Distribution</h3>
                         <div id="user_statistics">
                             <div class="displayed_statistics">
-                                <p>Statistics</p>
                                 <div class="statistics_box">
                                     <div class="stat1">
                                         <div class="statistics_numbers">
@@ -183,7 +178,7 @@
                                         <div class="statistics_numbers">
                                             3
                                         </div>
-                                        <div class="statistics_chart today_result">
+                                        <div class="statistics_chart">
                                             4
                                         </div>
                                     </div>
@@ -222,6 +217,8 @@
                                 </div>
                             </div>
                         </div>
+                        <hr>
+                        <h3>Daily streak: <span class="user_streak"></span></h3>
                     </div>
                 </div>
             </div>
@@ -264,14 +261,9 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <div>
-                            <h5 id="results_feedback"></h5>
-                            <br>
-                            <h5 id="user_streak"></h5>
-                        </div>
+                        <h5 id="results_feedback"></h5>
                         <div id="user_statistics">
                             <div class="displayed_statistics">
-                                <p>Statistics</p>
                                 <div class="statistics_box">
                                     <div class="stat1">
                                         <div class="statistics_numbers">
@@ -293,7 +285,7 @@
                                         <div class="statistics_numbers">
                                             3
                                         </div>
-                                        <div class="statistics_chart today_result">
+                                        <div class="statistics_chart active">
                                             4
                                         </div>
                                     </div>
@@ -332,6 +324,8 @@
                                 </div>
                             </div>
                         </div>
+                        <hr>
+                        <h3>Daily streak: <span class="user_streak"></span></h3>
                         <div class="row mt-4">
                             <div class="col-6">
                                 <button type="button" id="share" class="btn btn-secondary result-btn">Share <i class="fa-solid fa-share"></i></button>
@@ -456,6 +450,7 @@
         <script src="assets/js/typing.js"></script>
         <script src="assets/js/game.js"></script>
         <script src="assets/js/results.js"></script>
+        <script src="assets/js/stats.js"></script>
         <script src="https://kit.fontawesome.com/37aedfb0cb.js" crossorigin="anonymous"></script> <!-- https://fontawesome.com/  -->
     </body>     
 </html>

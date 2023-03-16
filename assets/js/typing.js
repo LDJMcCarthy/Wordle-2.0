@@ -148,11 +148,12 @@ document.querySelectorAll('.key').forEach((key) => {
                                 document.querySelector('.gamemode-link.active i').classList.add('text-success');
                                 document.querySelector('.gamemode-link.active p').classList.add('text-success');
                                 /* Show win */
+                                game_status.stats[game_status.row + 1]++;
+                                generateResultsStats(true);
                                 setTimeout(function(){showResult(true)}, 1000);
 
                                 game_status.submitted = true;
 
-                                game_status.stats[game_status.row + 1]++;
 
                                 game_status.locked = false;
                                 document.querySelector('#play-warning').classList.add('d-none');
@@ -182,6 +183,7 @@ document.querySelectorAll('.key').forEach((key) => {
                                 document.querySelector('.gamemode-link.active i').classList.add('text-danger');
                                 document.querySelector('.gamemode-link.active p').classList.add('text-danger');
                                 /* Show lost */
+                                generateResultsStats(false);
                                 setTimeout(function(){showResult(false)}, 1000);
 
                                 game_status.submitted = true;

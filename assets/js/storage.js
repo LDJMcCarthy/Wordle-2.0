@@ -104,6 +104,8 @@ if (localStorage.getItem('game_status') === null)
         game_status.streakLastDay = game_status.day - 1;
     }
 
+    game_status.column = 0;
+
 
     saveState();
 

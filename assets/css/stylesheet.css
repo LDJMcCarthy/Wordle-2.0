@@ -243,35 +243,7 @@ padding-right: 1.5rem;
     background-color: #484848;
 }
 
-.stat1 .statistics_chart
-{
-    width: 10%
-}
-.stat2 .statistics_chart
-{
-    width: 10%
-}
-.stat3 .statistics_chart
-{
-    width: 46%
-}
-.stat4 .statistics_chart
-{
-    width: 64%
-}
-.stat5 .statistics_chart
-{
-    width: 55%
-}
-.stat6 .statistics_chart
-{
-    width: 100%
-}
-.stat7 .statistics_chart
-{
-    width: 10%
-}
-.today_result
+.statistics_chart.active
 {
     background-color: #71c24e !important;
 }
