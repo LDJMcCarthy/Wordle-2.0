@@ -42,6 +42,8 @@ if (localStorage.getItem('game_status') === null)
         locked: false
     };
 
+    document.querySelector('#mode_indicator').innerText = 'Daily Mode';
+
     /* Show help modal */
     instructionModal.show();
 } else {
