@@ -143,10 +143,13 @@ document.querySelectorAll('.key').forEach((key) => {
                                     game_status.streakLastDay++;
                                 }
 
-                                game_status['daily'][game_status.active] = [true, true];
-                                document.querySelector('#play-button').innerText = 'Practise';
-                                document.querySelector('.gamemode-link.active i').classList.add('text-success');
-                                document.querySelector('.gamemode-link.active p').classList.add('text-success');
+                                if (game_status['daily'][game_status.active][0] == false)
+                                {
+                                    game_status['daily'][game_status.active] = [true, true];
+                                    document.querySelector('#play-button').innerText = 'Practise';
+                                    document.querySelector('.gamemode-link.active i').classList.add('text-success');
+                                    document.querySelector('.gamemode-link.active p').classList.add('text-success');
+                                }
                                 /* Show win */
                                 game_status.stats[game_status.row + 1]++;
                                 generateResultsStats(true);
@@ -179,9 +182,12 @@ document.querySelectorAll('.key').forEach((key) => {
                                     game_status.streakLastDay++;
                                 }
 
-                                document.querySelector('#play-button').innerText = 'Practise';
-                                document.querySelector('.gamemode-link.active i').classList.add('text-danger');
-                                document.querySelector('.gamemode-link.active p').classList.add('text-danger');
+                                if (game_status['daily'][game_status.active][0] == false)
+                                {
+                                    document.querySelector('#play-button').innerText = 'Practise';
+                                    document.querySelector('.gamemode-link.active i').classList.add('text-danger');
+                                    document.querySelector('.gamemode-link.active p').classList.add('text-danger');
+                                }
                                 /* Show lost */
                                 generateResultsStats(false);
                                 setTimeout(function(){showResult(false)}, 1000);

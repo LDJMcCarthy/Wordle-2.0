@@ -176,6 +176,10 @@ display: None;
     font-family: 'Zilla Slab', serif;
     text-align: left;
 }
+#mode_indicator
+{
+    font-family: 'Zilla Slab', serif;
+}
 #settings .modal-header, #settings .modal-footer, #results .modal-header, #results .modal-footer
 {
     justify-content: center;

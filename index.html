@@ -114,6 +114,8 @@
                                 <li><h6>Each guess must be of either 4, 5, or 6 letters depending on the chosen gamemode.</h6></li>
                                 <li><h6>When pressing submit or enter, the game tiles will change colour to indicate how close you were to getting the word.</h6></li>
                             </ul>
+                            <h4>Gamemodes</h4>
+                            <h6>There are two gamemodes: daily and practise. You must complete the daily mode for each word length before the practise mode unlocks for that word length.</h6>
                             <h4>Examples:</h4>
                             <div class="demo-row">
                                 <div class="demo-grid correct-place">S</div>
@@ -139,6 +141,8 @@
                                 <div class="demo-grid wrong">T</div>
                             </div>
                             <h6>Grey means that the letter is not in the word in any position.</h6>
+                            <h4>Hard mode</h4>
+                            <h6>You can turn on hard mode in the settings. When enabled, you MUST use any revealed letters in subsequent guesses.</h6>
                         </div>
                     </div>
                 </div>
@@ -345,12 +349,10 @@
 
         <div class="row">
             <div class="col-lg-3">
-                <div class="side-menu">
-                    
-                </div>
             </div>
             <div class="col-lg-6">
                 <div class="game-position">
+                    <h5 class="text-center mb-4" id="mode_indicator"></h5>
                     <div class="game-board" id="game-board">
                         <div class="row game-row">
                             <div class="column game-column"></div>
@@ -399,7 +401,6 @@
                 </div>
             </div>
             <div class="col-lg-3">
-                
             </div>
         </div>
 

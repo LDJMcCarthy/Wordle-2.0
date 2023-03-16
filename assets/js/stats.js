@@ -62,5 +62,7 @@ function buildModal(numberOfLetters, container)
         container.appendChild(stat);
     }
 
-    document.querySelector('.user_streak').innerText = game_status.streak;
+    document.querySelectorAll('.user_streak').forEach((element) => {
+        element.innerText = game_status.streak;
+    });
 }
