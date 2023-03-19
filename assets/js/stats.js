@@ -44,7 +44,7 @@ function buildModal(numberOfLetters, container)
 
     container.innerHTML = ''
 
-    for (let i = 1; i <= numberOfLetters; i++)
+    for (let i = 1; i <= (numberOfLetters + 1); i++)
     {
         const stat = document.createElement('div');
         
