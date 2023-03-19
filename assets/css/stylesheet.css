@@ -100,7 +100,7 @@ p{
 }
 .game-position{
     height: 100%;
-    margin-top: 50px;
+    margin-top: 20px;
     margin-bottom: 50px;
 }
 .game-board{
@@ -123,6 +123,16 @@ p{
     display: grid;
     place-items: center;
     transition: 0.4s;
+}
+#mode_indicator
+{
+    color: #000;
+    margin-bottom: 0px !important;
+}
+
+[data-bs-theme="dark"] #mode_indicator
+{
+    color: #fff
 }
 
 [data-bs-theme="dark"] .game-column
