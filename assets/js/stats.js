@@ -1,7 +1,7 @@
 const statsModal = new bootstrap.Modal(document.querySelector('#stats'));
 
 document.querySelector('#stats_button').addEventListener('click', function() {
-    buildModal(7, document.querySelector('#stats .statistics_box'));
+    buildModal(6, document.querySelector('#stats .statistics_box'));
 
     statsModal.show();
 });
