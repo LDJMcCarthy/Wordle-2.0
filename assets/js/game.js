@@ -5,16 +5,6 @@ function setupGame(numberOfLetters, reset) {
 
     game_status['active'] = numberOfLetters;
 
-    /* Update mode indicator */
-    if (game_status['daily'][game_status.active][0])
-    {
-        document.querySelector('#mode_indicator').innerText = 'Practise Mode';
-    }
-    else 
-    {
-        document.querySelector('#mode_indicator').innerText = 'Daily Mode';
-    }
-
     for (let i = 0; i < numberOfLetters + 1; i++)
     {
         const row = document.createElement('div');
@@ -82,6 +72,16 @@ function setupGame(numberOfLetters, reset) {
             {
                 game_status["word"][numberOfLetters] = six[Math.floor(Math.random() * six.length)].toUpperCase();
             }
+        }
+
+        /* Update mode indicator */
+        if (game_status['daily'][game_status.active][0])
+        {
+            document.querySelector('#mode_indicator').innerText = 'Practise Mode';
+        }
+        else 
+        {
+            document.querySelector('#mode_indicator').innerText = 'Daily Mode';
         }
     
     }

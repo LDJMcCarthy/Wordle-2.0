@@ -2,9 +2,9 @@ let game_status = {};
 
 const instructionModal = new bootstrap.Modal(document.querySelector('#instructions'));
 
-
 if (localStorage.getItem('game_status') === null)
 {
+
     game_status = 
     {
         daily: 
@@ -66,10 +66,6 @@ if (localStorage.getItem('game_status') === null)
                     document.querySelector('#button_' + x + '_letters i').classList.add('text-danger');
                     document.querySelector('#button_' + x + '_letters p').classList.add('text-danger');    
                 }
-                if (game_status.active == x)
-                {
-                    document.querySelector('#play-button').innerText = 'Practise';
-                }
             }
         }
 
@@ -107,6 +103,26 @@ if (localStorage.getItem('game_status') === null)
     }
 
     game_status.column = 0;
+
+
+    /* Update mode indicator */
+    if (game_status.active == 4 && game_status.word['4'] == four[dateCalc()])
+    {
+        document.querySelector('#mode_indicator').innerText = 'Daily Mode';
+    }
+    else if (game_status.active == 5 && game_status.word['5'] == five[dateCalc()])
+    {
+        document.querySelector('#mode_indicator').innerText = 'Daily Mode';
+    }
+    else if (game_status.active == 6 && game_status.word['6'] == six[dateCalc()])
+    {
+        document.querySelector('#mode_indicator').innerText = 'Daily Mode';
+    }
+    else
+    {
+        document.querySelector('#mode_indicator').innerText = 'Practise Mode';
+    }
+
 
 
     saveState();
