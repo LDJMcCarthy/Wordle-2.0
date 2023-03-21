@@ -169,6 +169,10 @@ display: None;
 {
     font-family: 'Zilla Slab', serif;
 }
+#results
+{
+    font-family: 'Zilla Slab', serif;
+}
 .nav-link
 {
     cursor: pointer;
