@@ -171,22 +171,25 @@ document.querySelectorAll('.key').forEach((key) => {
 
                                 saveState();
                             }
-
                             if (game_status.row == (game_status.active + 1))
                             {
                                 game_status['daily'][game_status.active] = [true, false];
-
                                 if (game_status.streakLastDay == game_status.day - 1 && game_status['daily'][4][0] && game_status['daily'][5][0] && game_status['daily'][6][0])
                                 {
                                     game_status.streak = 0;
                                     game_status.streakLastDay++;
                                 }
 
-                                if (game_status['daily'][game_status.active][0] == false)
+                                for (let x in game_status.daily)
                                 {
-                                    document.querySelector('#play-button').innerText = 'Practise';
-                                    document.querySelector('.gamemode-link.active i').classList.add('text-danger');
-                                    document.querySelector('.gamemode-link.active p').classList.add('text-danger');
+                                    if (game_status.daily[x][0]) {
+                                        if (game_status.daily[x][1] == false)
+                                        {
+                                            document.querySelector('#play-button').innerText = 'Practise';
+                                            document.querySelector('#button_' + x + '_letters i').classList.add('text-danger');
+                                            document.querySelector('#button_' + x + '_letters p').classList.add('text-danger');    
+                                        }
+                                    }
                                 }
                                 /* Show lost */
                                 generateResultsStats(false);
