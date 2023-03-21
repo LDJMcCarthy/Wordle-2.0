@@ -1,14 +1,14 @@
 const statsModal = new bootstrap.Modal(document.querySelector('#stats'));
 
 document.querySelector('#stats_button').addEventListener('click', function() {
-    buildModal(6, document.querySelector('#stats .statistics_box'));
+    buildModal(7, document.querySelector('#stats .statistics_box'));
 
     statsModal.show();
 });
 
 function generateResultsStats(user_won)
 {  
-    buildModal(game_status.active, document.querySelector('#results .statistics_box'));
+    buildModal(game_status.active + 1, document.querySelector('#results .statistics_box'));
 
     if (user_won)
     {
@@ -44,7 +44,7 @@ function buildModal(numberOfLetters, container)
 
     container.innerHTML = ''
 
-    for (let i = 1; i <= (numberOfLetters + 1); i++)
+    for (let i = 1; i <= numberOfLetters; i++)
     {
         const stat = document.createElement('div');
         
