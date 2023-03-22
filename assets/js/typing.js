@@ -139,7 +139,7 @@ document.querySelectorAll('.key').forEach((key) => { /* Selects all the keys */
                                     document.querySelector('#' + word[i]).classList.add('wrong');
                                 }
 
-                            },i * 500);
+                            },i * 0);
 
                         }
 
@@ -206,7 +206,7 @@ document.querySelectorAll('.key').forEach((key) => { /* Selects all the keys */
                                 saveState();
                             }
 
-                        }, (word.length - 1) * 500);
+                        }, (word.length - 1) * 0);
 
                     } 
                     else
