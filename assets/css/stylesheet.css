@@ -182,7 +182,11 @@ display: None;
 }
 .nav-link:hover
 {
-    color: #747474;
+    color: #000;
+}
+.nav-link:focus
+{
+        color:#000 !important;
 }
 
 #instructions .left
