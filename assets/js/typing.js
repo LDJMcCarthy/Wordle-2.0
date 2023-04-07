@@ -1,35 +1,44 @@
 /* Handle the user typing */
-let lastKey;
 
 /* Add event listeners */
-document.querySelectorAll('.key').forEach((key) => {
-    key.addEventListener('click', function(event) {
+document.querySelectorAll('.key').forEach((key) => { /* Selects all the keys */
+    key.addEventListener('click', function(event) { /* Event listener for the keys */
         hideError();
-        const currentRow = document.querySelectorAll('.game-row')[game_status.row];
-
-        let target = event.target;
-        if (target.classList.contains('fa-solid'))
+        const currentRow = document.querySelectorAll('.game-row')[game_status.row]; /* Initialises currentRow */
+        let target = event.target; /* Initialises target as which key was pressed. */
+        if (target.classList.contains('fa-solid')) /* selects if the target has the class "fa-solid" */
         {
-            target = target.parentNode;
+            target = target.parentNode; /* Assigns the parentNode */
         }
 
-        target = target.innerText;
+        target = target.innerText; /* Assigns the innerText */
 
-        if (target != 'ENTER' && target != '')
+        let count = 0
+
+        while (count != 500)
         {
-            if (currentRow.querySelectorAll('.game-column').length != game_status.column)
+            count++;
+        }
+
+
+
+
+        if (target != 'ENTER' && target != '') /* Selects if the key is a letter */
+        {
+            if (currentRow.querySelectorAll('.game-column').length != game_status.column) /* Selects if at the end of row */
             {
-                currentRow.querySelectorAll('.game-column')[game_status.column].innerText = target;
-                game_status.column++;
-                saveState();
+                currentRow.querySelectorAll('.game-column')[game_status.column].innerText = target; /* Inserts the character into game grid */
+                game_status.column++; /* Increments the column */
+                saveState(); /* Saves the game state. */
+                
             }
         }
 
-        else if (target == '' && game_status.column > 0)
+        else if (target == '' && game_status.column > 0) /* Selects if the key is backspace */
         {
-            game_status.column--;
-            saveState();
-            currentRow.querySelectorAll('.game-column')[game_status.column].innerText = '';
+            game_status.column--; /* Decrements the column */
+            saveState(); /* Saves the game state. */
+            currentRow.querySelectorAll('.game-column')[game_status.column].innerText = ''; /* Removes the letter from the column. */
         }
 
         /* Handle enter being pressed */
@@ -130,7 +139,7 @@ document.querySelectorAll('.key').forEach((key) => {
                                     document.querySelector('#' + word[i]).classList.add('wrong');
                                 }
 
-                            },i * 500);
+                            },i * 0);
 
                         }
 
@@ -171,23 +180,21 @@ document.querySelectorAll('.key').forEach((key) => {
 
                                 saveState();
                             }
-
                             if (game_status.row == (game_status.active + 1))
                             {
-                                game_status['daily'][game_status.active] = [true, false];
-
+                                if (game_status['daily'][game_status.active][0] == false)
+                                {
+                                    game_status['daily'][game_status.active] = [true, false];
+                                    document.querySelector('#play-button').innerText = 'Practise';
+                                    document.querySelector('.gamemode-link.active i').classList.add('text-danger');
+                                    document.querySelector('.gamemode-link.active p').classList.add('text-danger');
+                                }
                                 if (game_status.streakLastDay == game_status.day - 1 && game_status['daily'][4][0] && game_status['daily'][5][0] && game_status['daily'][6][0])
                                 {
                                     game_status.streak = 0;
                                     game_status.streakLastDay++;
                                 }
-
-                                if (game_status['daily'][game_status.active][0] == false)
-                                {
-                                    document.querySelector('#play-button').innerText = 'Practise';
-                                    document.querySelector('.gamemode-link.active i').classList.add('text-danger');
-                                    document.querySelector('.gamemode-link.active p').classList.add('text-danger');
-                                }
+                                
                                 /* Show lost */
                                 generateResultsStats(false);
                                 setTimeout(function(){showResult(false)}, 1000);
@@ -199,7 +206,7 @@ document.querySelectorAll('.key').forEach((key) => {
                                 saveState();
                             }
 
-                        }, (word.length - 1) * 500);
+                        }, (word.length - 1) * 0);
 
                     } 
                     else
@@ -218,11 +225,6 @@ document.querySelectorAll('.key').forEach((key) => {
 /* Allow the user to type answers */
 window.addEventListener('keyup', function(event)
 {
-    
-    if (event.keyCode == lastKey && event.keyCode == 13)
-    {
-        return;
-    }
     if (event.keyCode == 13)
     {
         lastKey = event.keyCode;
