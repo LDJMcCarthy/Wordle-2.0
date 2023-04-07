@@ -175,10 +175,16 @@ display: None;
 }
 .nav-link
 {
+    color: #000;
     cursor: pointer;
     padding-left: 3px;
     padding-right: 3px;
 }
+.nav-link:hover
+{
+    color: #747474;
+}
+
 #instructions .left
 {
     font-family: 'Zilla Slab', serif;
