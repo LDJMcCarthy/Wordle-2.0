@@ -68,6 +68,11 @@ p{
 }
 .gamemode-link:not(.active):hover{
     background-color: #d7d7d7;
+    color: #171717
+}
+.gamemode-link.active:hover{
+    background-color: #d7d7d7;
+    color: #171717
 }
 .gamemode-link i
 {
@@ -81,7 +86,7 @@ p{
 }
 .gamemode-link.active
 {
-    border: 2px solid var(--bs-emphasis-color);
+    border: 2px solid black;
     cursor: default;
 }
 [data-bs-theme="dark"] .gamemode-link.active
