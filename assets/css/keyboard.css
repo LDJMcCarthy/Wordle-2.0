@@ -23,11 +23,11 @@
     border-radius: 5px;
     font-size: var(--key-font-size);
     background-color: #f0f0f0;
-    font-weight: bold;
     display: inline-block;
     text-align: center;
     cursor: pointer;
     font-family: 'Zilla Slab', serif;
+    font-weight: 600;
 }
 
 #enter
