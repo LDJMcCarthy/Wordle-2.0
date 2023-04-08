@@ -14,8 +14,13 @@ body {
     color: black;
     touch-action: manipulation;
 }
+[data-bs-theme="dark"] body
+{
+    background-color: #242424;
+}
 nav {
     font-family: 'Zilla Slab', serif;
+    font-weight: 600;
     height: 65px;
     font-size: 32px;
     border-bottom: solid 1px #313131;
@@ -64,6 +69,11 @@ p{
 }
 .gamemode-link:not(.active):hover{
     background-color: #d7d7d7;
+    color: #171717
+}
+.gamemode-link.active:hover{
+    background-color: #d7d7d7;
+    color: #171717
 }
 .gamemode-link i
 {
@@ -77,7 +87,7 @@ p{
 }
 .gamemode-link.active
 {
-    border: 2px solid var(--bs-emphasis-color);
+    border: 2px solid black;
     cursor: default;
 }
 [data-bs-theme="dark"] .gamemode-link.active
@@ -175,10 +185,20 @@ display: None;
 }
 .nav-link
 {
+    color: #000;
     cursor: pointer;
     padding-left: 3px;
     padding-right: 3px;
 }
+.nav-link:hover
+{
+    color: #000;
+}
+.nav-link:focus
+{
+        color:#000 !important;
+}
+
 #instructions .left
 {
     font-family: 'Zilla Slab', serif;
@@ -197,6 +217,7 @@ display: None;
 #settings .modal-header, #settings .modal-footer, #results .modal-header, #results .modal-footer
 {
     justify-content: center;
+    font-family: 'Zilla Slab', serif;
 }
 
 #results .modal-header
@@ -206,6 +227,7 @@ display: None;
 
 .modal-body
 {
+    font-family: 'Zilla Slab', serif;
     font-size: 1.25rem;
     text-align: center;
 }
@@ -213,6 +235,32 @@ display: None;
 [data-bs-theme="dark"] .modal-body
 {
     color: white;
+    background-color: #313131;
+}
+[data-bs-theme="dark"] .modal-header
+{
+    color: white;
+    background-color: #313131;
+}
+[data-bs-theme="dark"] .modal-footer
+{
+    color: white;
+    background-color: #313131;
+}
+[data-bs-theme="dark"] .modal-content
+{
+    background-color: #313131;
+}
+[data-bs-theme="dark"] #offcanvas
+{
+    background-color: #313131;
+    color: #fff;
+}
+[data-bs-theme="dark"] .btn-close
+{
+    filter: invert(1) grayscale(100%) brightness(200%);
+    opacity: 1;
+
 }
 
 .modal
@@ -311,6 +359,41 @@ padding-right: 1.5rem;
     transition: 0.4s;
 }
 
+.form-check-input:checked {
+    background-color: #198754;
+    border-color: #198754;
+  }
+
+
+
+/* zilla-slab-regular - latin */
+@font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Zilla Slab';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/zilla-slab-v11-latin-regular.eot'); /* IE9 Compat Modes */
+    src: url('../fonts/zilla-slab-v11-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('../fonts/zilla-slab-v11-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+         url('../fonts/zilla-slab-v11-latin-regular.woff') format('woff'), /* Modern Browsers */
+         url('../fonts/zilla-slab-v11-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('../fonts/zilla-slab-v11-latin-regular.svg#ZillaSlab') format('svg'); /* Legacy iOS */
+  }
+  
+  /* zilla-slab-600 - latin */
+  @font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Zilla Slab';
+    font-style: normal;
+    font-weight: 600;
+    src: url('../fonts/zilla-slab-v11-latin-600.eot'); /* IE9 Compat Modes */
+    src: url('../fonts/zilla-slab-v11-latin-600.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('../fonts/zilla-slab-v11-latin-600.woff2') format('woff2'), /* Super Modern Browsers */
+         url('../fonts/zilla-slab-v11-latin-600.woff') format('woff'), /* Modern Browsers */
+         url('../fonts/zilla-slab-v11-latin-600.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('../fonts/zilla-slab-v11-latin-600.svg#ZillaSlab') format('svg'); /* Legacy iOS */
+  }
+  
 
 
 @media only screen and (max-width: 600px) {
