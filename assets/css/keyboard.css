@@ -39,8 +39,12 @@
 {
     background-color: #c0c0c0;
 }
-
+[data-bs-theme="dark"] .key
+{
+    background-color: #171717;
+    color: #fff;
+}
 [data-bs-theme="dark"] #delete
 {
-    color: black;
+    color: #fff;
 }
