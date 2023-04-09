@@ -364,6 +364,10 @@ padding-right: 1.5rem;
     border-color: #198754;
   }
 
+.offcanvas
+{
+    visibility: unset;
+}
 
 
 /* zilla-slab-regular - latin */
