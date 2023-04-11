@@ -92,11 +92,21 @@ const PRECACHE_URLS = [
 
 // The install handler takes care of precaching the resources we always need.
 self.addEventListener('install', event => {
-  event.waitUntil(
+  try{event.waitUntil(
     caches.open(PRECACHE)
       .then(cache => cache.addAll(PRECACHE_URLS))
       .then(self.skipWaiting())
-  );
+  ); } catch (err){
+    console.error('sw: cache.addAll');
+      for await (let i of PRECACHE_URLS) {
+        try {
+          ok = await cache.add(i);
+        } catch (err) {
+          console.warn('sw: cache.add',i);
+        }
+      }
+    }
+  }
 });
 
 // The activate handler takes care of cleaning up old caches.
