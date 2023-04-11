@@ -13,6 +13,7 @@
     "education",
     "games"
   ],
+  "Cache-control": "max-age=180",
   "screenshots": [],
   "icons": [
     {
