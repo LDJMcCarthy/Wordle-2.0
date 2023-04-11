@@ -100,14 +100,13 @@ self.addEventListener('install', event => {
     console.error('sw: cache.addAll');
       for await (let i of PRECACHE_URLS) {
         try {
-          ok = await cache.add(i);
+          ok = cache.add(i);
         } catch (err) {
           console.warn('sw: cache.add',i);
         }
       }
     }
-  }
-});
+  });
 
 // The activate handler takes care of cleaning up old caches.
 self.addEventListener('activate', event => {
