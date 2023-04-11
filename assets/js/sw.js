@@ -81,13 +81,13 @@ const PRECACHE_URLS = [
     'assets/fonts/zilla-slab-v11-latin-600.eot',
     'assets/fonts/zilla-slab-v11-latin-600.svg',
     'assets/fonts/zilla-slab-v11-latin-600.ttf',
-    'assets/fonts/zilla-slab-v11-latin-600.wolf',
-    'assets/fonts/zilla-slab-v11-latin-600.wolf2',
+    'assets/fonts/zilla-slab-v11-latin-600.woff',
+    'assets/fonts/zilla-slab-v11-latin-600.woff2',
     'assets/fonts/zilla-slab-v11-latin-regular.eot',
     'assets/fonts/zilla-slab-v11-latin-regular.svg',
     'assets/fonts/zilla-slab-v11-latin-regular.ttf',
-    'assets/fonts/zilla-slab-v11-latin-regular.wolf',
-    'assets/fonts/zilla-slab-v11-latin-regular.wolf2'
+    'assets/fonts/zilla-slab-v11-latin-regular.woff',
+    'assets/fonts/zilla-slab-v11-latin-regular.woff2'
 ];
 
 // The install handler takes care of precaching the resources we always need.
