@@ -60,8 +60,8 @@ const PRECACHE_URLS = [
     'assets/js/bootstrap-reboot.min.css.map',
     'assets/js/bootstrap-reboot.rtl.css',
     'assets/js/bootstrap-reboot.rtl.css.map',
-    'assets/js/bootstrap-reboot.rtl.css',
-    'assets/js/bootstrap-reboot.rtl.css.map',
+    'assets/js/bootstrap-reboot.rtl.min.css',
+    'assets/js/bootstrap-reboot.rtl.min.css.map',
     'assets/js/bootstrap-utilities.css',
     'assets/js/bootstrap-utilities.css.map',
     'assets/js/bootstrap-utilities.min.css',
@@ -77,7 +77,17 @@ const PRECACHE_URLS = [
     'assets/js/bootstrap.rtl.css',
     'assets/js/bootstrap.rtl.css.map',
     'assets/js/bootstrap.rtl.min.css',
-    'assets/js/bootstrap.rtl.min.css.map'
+    'assets/js/bootstrap.rtl.min.css.map',
+    'assets/fonts/zilla-slab-v11-latin-600.eot',
+    'assets/fonts/zilla-slab-v11-latin-600.svg',
+    'assets/fonts/zilla-slab-v11-latin-600.ttf',
+    'assets/fonts/zilla-slab-v11-latin-600.wolf',
+    'assets/fonts/zilla-slab-v11-latin-600.wolf2',
+    'assets/fonts/zilla-slab-v11-latin-regular.eot',
+    'assets/fonts/zilla-slab-v11-latin-regular.svg',
+    'assets/fonts/zilla-slab-v11-latin-regular.ttf',
+    'assets/fonts/zilla-slab-v11-latin-regular.wolf',
+    'assets/fonts/zilla-slab-v11-latin-regular.wolf2'
 ];
 
 // The install handler takes care of precaching the resources we always need.
