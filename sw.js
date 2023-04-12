@@ -89,12 +89,7 @@ const PRECACHE_URLS = [
     './assets/fonts/zilla-slab-v11-latin-regular.woff2'
 ];
 
-// Registering the SW
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker
-           .register('./service-worker.js')
-           .then(function() { console.log('Service Worker Registered'); });
-}
+
 
 // The install handler takes care of precaching the resources we always need.
 self.addEventListener('install', function(e) {
