@@ -446,7 +446,7 @@
         <script>
             // Registering the SW
             if (navigator && navigator.serviceWorker) {
-                navigator.serviceWorker.register('sw.js');
+                navigator.serviceWorker.register('sw.js', { scope: "/" });
             }
         </script>
         <script src="https://kit.fontawesome.com/37aedfb0cb.js" crossorigin="anonymous"></script> <!-- https://fontawesome.com/  -->
