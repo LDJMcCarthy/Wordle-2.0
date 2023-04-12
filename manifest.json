@@ -9,6 +9,7 @@
   "short_name": "Wordle-2.0",
   "start_url": "https://ldjmccarthy.github.io/Wordle-2.0/",
   "theme_color": "#ffffff",
+  "prefer_related_applications": "false",
   "categories": [
     "education",
     "games"
