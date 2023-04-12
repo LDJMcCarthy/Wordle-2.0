@@ -1,3 +1,5 @@
+/*
+
 // The install handler takes care of precaching the resources we always need.
 const addResourcesToCache = async (resources) => {
   const cache = await caches.open("v1");
@@ -81,7 +83,7 @@ self.addEventListener("install", (event) => {
 });
 
 
-
+*/
 
 
 
