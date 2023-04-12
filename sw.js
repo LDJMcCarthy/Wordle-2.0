@@ -1,24 +1,13 @@
-/*
- Copyright 2016 Google Inc. All Rights Reserved.
- Licensed under the Apache License, Version 2.0 (the "License");
- you may not use this file except in compliance with the License.
- You may obtain a copy of the License at
- http://www.apache.org/licenses/LICENSE-2.0
- Unless required by applicable law or agreed to in writing, software
- distributed under the License is distributed on an "AS IS" BASIS,
- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- See the License for the specific language governing permissions and
- limitations under the License.
- */
+// The install handler takes care of precaching the resources we always need.
+const addResourcesToCache = async (resources) => {
+  const cache = await caches.open("v1");
+  await cache.addAll(resources);
+};
 
-// Names of the two caches used in this version of the service worker.
-// Change to v2, etc. when you update any of the local resources, which will
-// in turn trigger the install event again.
-const PRECACHE = 'precache-v1';
-
-// A list of local resources we always want to be cached.
-const PRECACHE_URLS = [
-    './',
+self.addEventListener("install", (event) => {
+  event.waitUntil(
+    addResourcesToCache([
+      './',
     './index.html',
     './manifest.json',
     './assets/css/keyboard.css',
@@ -87,39 +76,11 @@ const PRECACHE_URLS = [
     './assets/fonts/zilla-slab-v11-latin-regular.ttf',
     './assets/fonts/zilla-slab-v11-latin-regular.woff',
     './assets/fonts/zilla-slab-v11-latin-regular.woff2'
-];
-
-
-
-// The install handler takes care of precaching the resources we always need.
-self.addEventListener('install', function(e) {
-  console.log('[ServiceWorker] Install');
-
-  e.waitUntil(
-    caches.open(PRECACHE).then(function(cache) {
-        console.log('[ServiceWorker] Caching app shell');
-        return cache.addAll(PRECACHE_URLS); // consider adding each file separately.
-    })
+    ])
   );
 });
 
-// The activate handler takes care of cleaning up old caches.
-self.addEventListener('activate', function(e) {
-  console.log('[ServiceWorker] Activate');
 
-  e.waitUntil(
-      caches.keys().then(function(keyList) {
-        return Promise.all(keyList.map(function(key) {
-          if (key !== PRECACHE) {
-            console.log('[ServiceWorker] Removing old cache', key);
-            return caches.delete(key);
-          }
-        }));
-      })
-  );
-
-  return self.clients.claim();
-});
 
 
 
