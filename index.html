@@ -7,23 +7,23 @@
         <link rel="icon" href="assets/images/logo.png">
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
         <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-        <meta name="theme-color" content="#ffffff" />
+        <meta name="theme-color" content="#ffffff">
         <link rel="apple-touch-icon" href="/ios/1024.png">
         <link href="assets/css/stylesheet.css" rel="stylesheet">
         <link href="assets/css/keyboard.css" rel="stylesheet">
         <script src="assets/js/bootstrap.bundle.min.js"></script>
         <link rel="manifest" href="manifest.json">
     </head>
-    <location path="sw.js">
-        <system.webServer>
-            <httpProtocol>
-                <customHeaders>
-                    <add name="Service-Worker-Allowed" value="/" />
-                </customHeaders>
-            </httpProtocol>
-        </system.webServer>
-    </location>
     <body>
+        <location path="sw.js">
+            <system.webServer>
+                <httpProtocol>
+                    <customHeaders>
+                        <add name="Service-Worker-Allowed" value="/"></add>
+                    </customHeaders>
+                </httpProtocol>
+            </system.webServer>
+        </location>
         <nav class="navbar navbar-expand sticky-top"> <!-- Influenced by https://www.w3schools.com/bootstrap5/bootstrap_navbar.php -->
             <div class="container-fluid">
                 <div class="nav-item">
