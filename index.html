@@ -14,6 +14,15 @@
         <script src="assets/js/bootstrap.bundle.min.js"></script>
         <link rel="manifest" href="manifest.json">
     </head>
+    <location path="sw.js">
+        <system.webServer>
+            <httpProtocol>
+                <customHeaders>
+                    <add name="Service-Worker-Allowed" value="/" />
+                </customHeaders>
+            </httpProtocol>
+        </system.webServer>
+    </location>
     <body>
         <nav class="navbar navbar-expand sticky-top"> <!-- Influenced by https://www.w3schools.com/bootstrap5/bootstrap_navbar.php -->
             <div class="container-fluid">
