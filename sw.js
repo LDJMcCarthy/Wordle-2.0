@@ -43,7 +43,9 @@ const PRECACHE_URLS = [
     'assets/fonts/zilla-slab-v11-latin-regular.svg',
     'assets/fonts/zilla-slab-v11-latin-regular.ttf',
     'assets/fonts/zilla-slab-v11-latin-regular.woff',
-    'assets/fonts/zilla-slab-v11-latin-regular.woff2'
+    'assets/fonts/zilla-slab-v11-latin-regular.woff2',
+    'assets/js/bootstrap.bundle.min.js',
+    'assets/js/bootstrap.min.css',
 ];
 
 // The install handler takes care of precaching the resources we always need.
