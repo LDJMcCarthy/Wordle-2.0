@@ -442,15 +442,7 @@
         <script src="assets/js/game.js"></script>
         <script src="assets/js/results.js"></script>
         <script src="assets/js/stats.js"></script>
-        <location path="sw.js">
-            <system.webServer>
-                <httpProtocol>
-                    <customHeaders>
-                        <add name="Service-Worker-Allowed" value="/"></add>
-                    </customHeaders>
-                </httpProtocol>
-            </system.webServer>
-        </location>
+        
         <script>
             // Registering the SW
             if (navigator && navigator.serviceWorker) {
@@ -458,5 +450,14 @@
             }
         </script>
         <script src="https://kit.fontawesome.com/37aedfb0cb.js" crossorigin="anonymous"></script> <!-- https://fontawesome.com/  -->
-    </body>     
+    </body> 
+    <location path="sw.js">
+        <system.webServer>
+            <httpProtocol>
+                <customHeaders>
+                    <add name="Service-Worker-Allowed" value="/"></add>
+                </customHeaders>
+            </httpProtocol>
+        </system.webServer>
+    </location>    
 </html>
