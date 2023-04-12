@@ -34,8 +34,6 @@ const PRECACHE_URLS = [
     'assets/js/storage.js',
     'assets/js/themeSwitcher.js',
     'assets/js/typing.js',
-    'assets/js/bootstrap.bundle.min.js',
-    'assets/js/bootstrap.min.css',
     'assets/fonts/zilla-slab-v11-latin-600.eot',
     'assets/fonts/zilla-slab-v11-latin-600.svg',
     'assets/fonts/zilla-slab-v11-latin-600.ttf',
