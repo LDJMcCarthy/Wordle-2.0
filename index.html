@@ -15,15 +15,6 @@
         <link rel="manifest" href="manifest.json">
     </head>
     <body>
-        <location path="sw.js">
-            <system.webServer>
-                <httpProtocol>
-                    <customHeaders>
-                        <add name="Service-Worker-Allowed" value="/"></add>
-                    </customHeaders>
-                </httpProtocol>
-            </system.webServer>
-        </location>
         <nav class="navbar navbar-expand sticky-top"> <!-- Influenced by https://www.w3schools.com/bootstrap5/bootstrap_navbar.php -->
             <div class="container-fluid">
                 <div class="nav-item">
@@ -451,6 +442,15 @@
         <script src="assets/js/game.js"></script>
         <script src="assets/js/results.js"></script>
         <script src="assets/js/stats.js"></script>
+        <location path="sw.js">
+            <system.webServer>
+                <httpProtocol>
+                    <customHeaders>
+                        <add name="Service-Worker-Allowed" value="/"></add>
+                    </customHeaders>
+                </httpProtocol>
+            </system.webServer>
+        </location>
         <script>
             // Registering the SW
             if (navigator && navigator.serviceWorker) {
