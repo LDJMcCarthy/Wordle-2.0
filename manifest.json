@@ -7,7 +7,7 @@
   "orientation": "any",
   "scope": ".",
   "short_name": "Wordle-2.0",
-  "start_url": "/",
+  "start_url": ".",
   "theme_color": "#ffffff",
   "prefer_related_applications": true,
   "categories": [
