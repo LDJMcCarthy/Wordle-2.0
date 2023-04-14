@@ -5,9 +5,9 @@
   "display": "standalone",
   "name": "Wordle-2.0",
   "orientation": "any",
-  "scope": "/",
+  "scope": ".",
   "short_name": "Wordle-2.0",
-  "start_url": "https://ldjmccarthy.github.io/Wordle-2.0/",
+  "start_url": "/",
   "theme_color": "#ffffff",
   "prefer_related_applications": true,
   "categories": [
